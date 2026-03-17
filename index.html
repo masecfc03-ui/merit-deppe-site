@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Merit Deppe | Healthcare Sales Professional</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;700;900&display=swap');
+
+  :root {
+    --navy: #0a192f;
+    --teal: #0d9488;
+    --teal-light: #14b8a6;
+    --gold: #d4a843;
+    --cream: #faf7f2;
+    --text: #1e293b;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(10,25,47,0.97);
+    backdrop-filter: blur(12px);
+    padding: 1rem 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    color: var(--white);
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+  .nav-logo span { color: var(--teal-light); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--teal-light); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--navy) 0%, #0f2d4a 50%, #0d3347 100%);
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 6rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(13,148,136,0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 20%, rgba(212,168,67,0.08) 0%, transparent 50%);
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 800px; }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(13,148,136,0.2);
+    border: 1px solid rgba(13,148,136,0.4);
+    color: var(--teal-light);
+    padding: 0.4rem 1.2rem;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.05;
+    margin-bottom: 1rem;
+    letter-spacing: -2px;
+  }
+  .hero h1 span { color: var(--teal-light); }
+  .hero-tagline {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: rgba(255,255,255,0.7);
+    max-width: 560px;
+    margin: 0 auto 2rem;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+  .hero-stats {
+    display: flex; gap: 3rem; justify-content: center;
+    margin: 2.5rem 0;
+    flex-wrap: wrap;
+  }
+  .stat {
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--teal-light);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 0.25rem;
+  }
+  .hero-cta {
+    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    margin-top: 2.5rem;
+  }
+  .btn-primary {
+    background: var(--teal);
+    color: white;
+    padding: 0.875rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+    border: 2px solid var(--teal);
+  }
+  .btn-primary:hover { background: var(--teal-light); border-color: var(--teal-light); transform: translateY(-2px); }
+  .btn-ghost {
+    background: transparent;
+    color: white;
+    padding: 0.875rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 2px solid rgba(255,255,255,0.3);
+    transition: all 0.2s;
+  }
+  .btn-ghost:hover { border-color: white; transform: translateY(-2px); }
+
+  /* SECTIONS */
+  section { padding: 5rem 2rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    letter-spacing: -1px;
+  }
+  .section-sub {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+  }
+
+  /* STORY */
+  .story { background: var(--white); }
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .story-visual {
+    background: linear-gradient(135deg, var(--navy) 0%, #0d3347 100%);
+    border-radius: 16px;
+    padding: 3rem;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .story-visual::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(13,148,136,0.3), transparent 70%);
+    border-radius: 50%;
+  }
+  .story-visual-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: var(--teal-light);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .story-visual-text {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+  .story-visual-sig {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .story-content p {
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+  .story-content p strong { color: var(--text); }
+  .timeline {
+    margin-top: 2rem;
+    border-left: 2px solid var(--border);
+    padding-left: 1.5rem;
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -1.95rem; top: 5px;
+    width: 10px; height: 10px;
+    background: var(--teal);
+    border-radius: 50%;
+    border: 2px solid var(--cream);
+  }
+  .timeline-year {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .timeline-event {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .timeline-detail {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  /* CREDENTIALS */
+  .credentials { background: var(--cream); }
+  .creds-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  .cred-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 1.75rem;
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .cred-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--teal), var(--gold));
+  }
+  .cred-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+  .cred-icon { font-size: 1.75rem; margin-bottom: 0.75rem; }
+  .cred-title { font-weight: 700; font-size: 0.9rem; color: var(--navy); margin-bottom: 0.25rem; }
+  .cred-body { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+  .cred-badge {
+    display: inline-block;
+    background: rgba(13,148,136,0.1);
+    color: var(--teal);
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 100px;
+    margin-top: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .cred-badge.gold {
+    background: rgba(212,168,67,0.1);
+    color: #b8860b;
+  }
+
+  /* RESUMES */
+  .resumes { background: var(--navy); }
+  .resumes .section-title { color: var(--white); }
+  .resumes .section-label { color: var(--teal-light); }
+  .resumes .section-sub { color: rgba(255,255,255,0.6); }
+
+  .tabs {
+    display: flex; gap: 0; flex-wrap: wrap;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    margin-bottom: 2.5rem;
+  }
+  .tab {
+    padding: 0.875rem 1.5rem;
+    color: rgba(255,255,255,0.5);
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+    user-select: none;
+  }
+  .tab:hover { color: rgba(255,255,255,0.8); }
+  .tab.active {
+    color: var(--teal-light);
+    border-bottom-color: var(--teal-light);
+  }
+
+  .resume-pane { display: none; }
+  .resume-pane.active { display: block; }
+
+  .resume-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 3rem;
+    max-width: 780px;
+    margin: 0 auto;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+
+  /* Resume internal styles */
+  .r-header { border-bottom: 2px solid var(--navy); padding-bottom: 1.25rem; margin-bottom: 1.5rem; }
+  .r-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--navy);
+    letter-spacing: -1px;
+    line-height: 1;
+  }
+  .r-title {
+    font-size: 0.9rem;
+    color: var(--teal);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0.35rem 0 0.75rem;
+  }
+  .r-contact {
+    display: flex; gap: 1.5rem; flex-wrap: wrap;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  .r-contact span { display: flex; align-items: center; gap: 0.35rem; }
+  .r-section { margin-bottom: 1.5rem; }
+  .r-section-title {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--navy);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.4rem;
+    margin-bottom: 1rem;
+  }
+  .r-summary {
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+  .r-job { margin-bottom: 1.25rem; }
+  .r-job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.25rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .r-company { font-weight: 700; font-size: 0.9rem; color: var(--navy); }
+  .r-role { font-size: 0.82rem; color: var(--teal); font-weight: 600; }
+  .r-dates { font-size: 0.78rem; color: var(--muted); white-space: nowrap; }
+  .r-bullets { list-style: none; margin-top: 0.5rem; }
+  .r-bullets li {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.6;
+    padding-left: 1rem;
+    position: relative;
+    margin-bottom: 0.3rem;
+  }
+  .r-bullets li::before {
+    content: '▸';
+    position: absolute; left: 0;
+    color: var(--teal);
+    font-size: 0.65rem;
+    top: 0.1rem;
+  }
+  .r-bullets li strong { color: var(--text); }
+  .r-skills-grid {
+    display: flex; flex-wrap: wrap; gap: 0.5rem;
+  }
+  .r-skill {
+    background: #f1f5f9;
+    border-radius: 4px;
+    padding: 0.3rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--navy);
+    border: 1px solid var(--border);
+  }
+  .r-certs { display: flex; flex-direction: column; gap: 0.5rem; }
+  .r-cert {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 0.8rem; color: var(--muted);
+  }
+  .r-cert::before { content: '✓'; color: var(--teal); font-weight: 700; }
+  .r-edu { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+  .r-edu-school { font-weight: 700; font-size: 0.9rem; color: var(--navy); }
+  .r-edu-degree { font-size: 0.82rem; color: var(--muted); }
+  .r-edu-date { font-size: 0.78rem; color: var(--muted); }
+
+  /* SKILLS */
+  .skills { background: var(--white); }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  .skill-bar { margin-bottom: 0.25rem; }
+  .skill-name {
+    display: flex; justify-content: space-between;
+    font-size: 0.85rem; font-weight: 600; color: var(--navy);
+    margin-bottom: 0.35rem;
+  }
+  .skill-track {
+    height: 6px;
+    background: var(--border);
+    border-radius: 100px;
+    overflow: hidden;
+  }
+  .skill-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--teal), var(--teal-light));
+    border-radius: 100px;
+    transition: width 1s ease;
+  }
+
+  /* CONTACT */
+  .contact {
+    background: linear-gradient(135deg, var(--navy), #0f2d4a);
+    text-align: center;
+    padding: 5rem 2rem;
+  }
+  .contact .section-title { color: var(--white); }
+  .contact .section-label { color: var(--teal-light); }
+  .contact p {
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 2.5rem;
+    font-size: 1.05rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .contact-links {
+    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+  }
+  .contact-item {
+    display: flex; align-items: center; gap: 0.5rem;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 0.875rem 1.5rem;
+    color: white;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+  .contact-item:hover {
+    background: rgba(13,148,136,0.2);
+    border-color: var(--teal);
+    transform: translateY(-2px);
+  }
+
+  /* FOOTER */
+  footer {
+    background: #050d1a;
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.25);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .story-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .resume-card { padding: 1.75rem; }
+    .hero-stats { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Merit <span>Deppe</span></div>
+  <ul class="nav-links">
+    <li><a href="#story">Story</a></li>
+    <li><a href="#credentials">Credentials</a></li>
+    <li><a href="#resumes">Resumes</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Healthcare Sales Professional</div>
+    <h1>Merit<br><span>Deppe</span></h1>
+    <p class="hero-tagline">
+      Four years at the pharmacy counter taught me one thing: the person who makes patients trust a treatment is worth more than the drug itself. Now I bring that to sales.
+    </p>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">4+</div>
+        <div class="stat-label">Years Patient-Facing</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">45+</div>
+        <div class="stat-label">Vaccines Administered</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">76</div>
+        <div class="stat-label">Recruitment Relationships Built</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Certifications Held</div>
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a href="#resumes" class="btn-primary">View Resumes →</a>
+      <a href="#contact" class="btn-ghost">Get In Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story" id="story">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-visual">
+        <div class="story-visual-quote">"</div>
+        <p class="story-visual-text">
+          I didn't become a pharmacy technician because it was the easiest path. I became one because I wanted to understand what it actually takes to earn a patient's trust — and I spent four years learning.
+        </p>
+        <div class="story-visual-sig">Merit Deppe · Dallas, TX</div>
+      </div>
+      <div class="story-content">
+        <div class="section-label">Background</div>
+        <h2 class="section-title" style="font-size:2rem;">Built From the Ground Up</h2>
+        <p>
+          Merit grew up in the Dallas–Fort Worth area, part of a family with <strong>roots running deep in Texas</strong> — the Deppe name traces back to German settlers who came to North Texas in the 1800s. That heritage instilled something durable: a work ethic that doesn't rely on shortcuts.
+        </p>
+        <p>
+          At Texas A&M, she earned a <strong>B.S. in Communication</strong> while simultaneously working as a pharmacy technician — not something most college students do. She wasn't padding a resume. She genuinely wanted to learn the language of healthcare from the inside.
+        </p>
+        <p>
+          Her four years in pharmacy gave her something no sales training program can replicate: <strong>thousands of real conversations with real patients</strong> about real fears — cost, side effects, insurance denials, needle anxiety. She navigated every one of them.
+        </p>
+        <p>
+          In Kappa Delta, she was consistently chosen to represent the chapter in competitive Panhellenic recruitment — a role built entirely on <strong>rapid rapport, authentic persuasion, and reading a room.</strong> Those are sales skills with a different name.
+        </p>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">2019</div>
+            <div class="timeline-event">Golf Ranch — First Sales Role</div>
+            <div class="timeline-detail">Richardson, TX · Upselling, customer relationships</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2021</div>
+            <div class="timeline-event">Las Colinas Pharmacy + Texas A&M</div>
+            <div class="timeline-detail">3+ years building patient relationships while earning her degree</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2024</div>
+            <div class="timeline-event">CVS Health — Dual Role</div>
+            <div class="timeline-detail">Immunizer + Pharmacy Tech · Dallas, TX</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2025</div>
+            <div class="timeline-event">Texas A&M Graduate</div>
+            <div class="timeline-detail">B.S. Communication · Certificate in Health Communication</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">Now</div>
+            <div class="timeline-event">Pursuing CNPR Certification</div>
+            <div class="timeline-detail">Targeting pharmaceutical & medical sales</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section class="credentials" id="credentials">
+  <div class="container">
+    <div class="section-label">Certifications & Education</div>
+    <h2 class="section-title">What She Brings to the Table</h2>
+    <p class="section-sub">Hard credentials that most entry-level candidates don't have. This isn't a resume padded with soft skills — it's four years of documented, verified healthcare work.</p>
+    <div class="creds-grid">
+      <div class="cred-card">
+        <div class="cred-icon">🎓</div>
+        <div class="cred-title">B.S. Communication + Health Communication Certificate</div>
+        <div class="cred-body">Texas A&M University, 2025. Dual focus on persuasion, messaging strategy, and health literacy — the exact skillset that separates average reps from top performers.</div>
+        <div class="cred-badge gold">Texas A&M '25</div>
+      </div>
+      <div class="cred-card">
+        <div class="cred-icon">💉</div>
+        <div class="cred-title">PTCB Certified Pharmacy Technician (CPhT)</div>
+        <div class="cred-body">National board certification for pharmacy technicians. Demonstrates verified pharmaceutical knowledge — from drug interactions to dosing to insurance adjudication.</div>
+        <div class="cred-badge">Active</div>
+      </div>
+      <div class="cred-card">
+        <div class="cred-icon">🩺</div>
+        <div class="cred-title">Immunization-Certified Pharmacy Technician</div>
+        <div class="cred-body">APhA-recognized certification. Administered 45+ vaccinations during flu season — including conversations that overcame real patient hesitancy in real time.</div>
+        <div class="cred-badge">Active</div>
+      </div>
+      <div class="cred-card">
+        <div class="cred-icon">📋</div>
+        <div class="cred-title">Texas State Board — Registered Pharmacy Technician</div>
+        <div class="cred-body">State-licensed in Texas. Demonstrates regulatory compliance, professional accountability, and long-term commitment to the healthcare field.</div>
+        <div class="cred-badge">Licensed</div>
+      </div>
+      <div class="cred-card">
+        <div class="cred-icon">🚀</div>
+        <div class="cred-title">CNPR — In Progress</div>
+        <div class="cred-body">Certified National Pharmaceutical Representative certification. Actively completing. Shows proactive investment in the transition to pharmaceutical sales — before she even lands the role.</div>
+        <div class="cred-badge gold">In Progress</div>
+      </div>
+      <div class="cred-card">
+        <div class="cred-icon">❤️</div>
+        <div class="cred-title">Adult & Pediatric First Aid / CPR / AED</div>
+        <div class="cred-body">American Red Cross certified. Reinforces patient safety focus and the comprehensive healthcare foundation she brings to every interaction.</div>
+        <div class="cred-badge">Active</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESUMES -->
+<section class="resumes" id="resumes">
+  <div class="container">
+    <div class="section-label">5 Targeted Versions</div>
+    <h2 class="section-title">Resumes Built to Win</h2>
+    <p class="section-sub">Each version is tailored to a specific industry and buyer — the right keywords, the right framing, the right story for each role.</p>
+
+    <div class="tabs">
+      <div class="tab active" onclick="showTab('pharma')">💊 Pharma Sales</div>
+      <div class="tab" onclick="showTab('device')">🔬 Medical Device</div>
+      <div class="tab" onclick="showTab('specialty')">⚕️ Specialty Pharmacy</div>
+      <div class="tab" onclick="showTab('account')">📊 Account Management</div>
+      <div class="tab" onclick="showTab('liaison')">🤝 Clinical Liaison</div>
+    </div>
+
+    <!-- RESUME 1: PHARMA SALES -->
+    <div class="resume-pane active" id="tab-pharma">
+      <div class="resume-card">
+        <div class="r-header">
+          <div class="r-name">Merit Deppe</div>
+          <div class="r-title">Pharmaceutical Sales Representative</div>
+          <div class="r-contact">
+            <span>📍 Dallas, TX</span>
+            <span>📞 (469) 520-6214</span>
+            <span>✉️ meritmdeppe@gmail.com</span>
+          </div>
+        </div>
+
+        <div class="r-section">
+          <div class="r-section-title">Professional Summary</div>
+          <div class="r-summary">
+            Results-driven healthcare professional with 4+ years of patient-facing experience and a demonstrated ability to build trust, navigate complex conversations, and drive measurable outcomes. PTCB-certified pharmacy technician and immunization-certified professional transitioning into pharmaceutical sales with a foundation that most entry-level reps simply don't have: real clinical experience, real objection handling, and a proven track record of growing volume in healthcare settings. CNPR certification in progress. Aggie-educated, high-energy, and built for competitive sales environments.
+          </div>
+        </div>
+
+        <div class="r-section">
+          <div class="r-section-title">Performance Highlights</div>
+          <ul class="r-bullets">
+            <li>Drove a <strong>20+ dose increase</strong> in flu vaccination volume over prior year through proactive patient education and hesitancy management</li>
+            <li>Administered <strong>45+ vaccinations</strong> in a single two-month flu season while managing full pharmacy technician responsibilities concurrently</li>
+            <li>Resolved complex insurance and prior authorization challenges for high-volume patient panel, reducing prescription abandonment</li>
+            <li>Built and managed <strong>relationships with 76 prospective members</strong> during competitive Panhellenic recruitment — driving 11 new member conversions</li>
+            <li>Consistently selected to lead high-stakes recruitment conversations (90%+ participation senior year), a process structurally identical to consultative sales</li>
+          </ul>
+        </div>
+
+        <div class="r-section">
+          <div class="r-section-title">Professional Experience</div>
+          <div class="r-job">
+            <div class="r-job-header">
+              <div><div class="r-company">CVS Health</div><div class="r-role">Immunizer & Pharmacy Technician</div></div>
+              <div class="r-dates">Jan 2024 – Present · Dallas, TX</div>
+            </div>
+            <ul class="r-bullets">
+              <li>Conduct one-on-one clinical consultations with patients on vaccine benefits, contraindications, and post-administration care — directly analogous to rep–physician detailing</li>
+              <li>Identify and overcome patient objections (hesitancy, cost, prior reactions) using empathy-driven consultative approach, resulting in measurable volume growth</li>
+              <li>Navigate insurance benefit structures, formulary restrictions, and prior authorizations on behalf of patients — core knowledge for payer-side pharma sales</li>
+              <li>Serve as primary patient-facing resource during high-volume periods, managing multiple relationships simultaneously without sacrificing service quality</li>
+            </ul>
+          </div>
+          <div class="r-job">
+            <div class="r-job-header">
+              <div><div class="r-company">Las Colinas Pharmacy</div><div class="r-role">Pharmacy Technician & Patient Relations</div></div>
+              <div class="r-dates">Mar 2021 – Dec 2024 · Irving, TX</div>
+            </div>
+            <ul class="r-bullets">
+              <li>Developed and maintained long-term patient relationships over 3+ years, achieving high retention through reliability, follow-through, and personalized communication</li>
+              <li>Educated patients on medication regimens, side effect profiles, and adherence strategies — directly applicable to product detailing</li>
+              <li>Collaborated with pharmacists to resolve insurance exceptions and access barriers, advocating for patient access to prescribed therapies</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="r-section">
+          <div class="r-section-title">Core Competencies</div>
+          <div class="r-skills-grid">
+            <span class="r-skill">Consultative Selling</span>
+            <span class="r-skill">Objection Handling</span>
+            <span class="r-skill">Clinical Communication</span>
+            <span class="r-skill">Formulary & PBM Knowledge</span>
+            <span class="r-skill">Prior Authorization</span>
+            <span class="r-skill">Relationship Management</span>
+            <span class="r-skill">Patient Education</span>
+            <span class="r-skill">Territory Management</span>
+            <span class="r-skill">CRM Systems</span>
+            <span class="r-skill">Pharmaceutical Terminology</span>
+          </div>
+        </div>
+
+        <div class="r-section">
+          <div class="r-section-title">Education & Certifications</div>
+          <div class="r-edu" style="margin-bottom:0.75rem;">
+            <div><div class="r-edu-school">Texas A&M University</div><div class="r-edu-degree">B.S. Communication · Certificate in Health Communication · Kappa Delta</div></div>
+            <div class="r-edu-date">2025</div>
+          </div>
+          <div class="r-certs">
+            <span class="r-cert">PTCB Certified Pharmacy Technician (CPhT) — Active</span>
+            <span class="r-cert">Immunization-Certified Pharmacy Technician (APhA) — Active</span>
+            <span class="r-cert">Texas State Board of Pharmacy — Registered Pharmacy Technician</span>
+            <span class="r-cert">CNPR — Certified National Pharmaceutical Representative (In Progress)</span>
+            <span class="r-cert">Adult & Pediatric First Aid / CPR / AED — American Red Cross</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESUME 2: MEDICAL DEVICE -->
+    <div class="resume-pane" id="tab-device">
+      <div class="resume-card">
+        <div class="r-header">
+          <div class="r-name">Merit Deppe</div>
+          <div class="r-title">Medical Device Sales Representative</div>
+          <div class="r-contact">
+            <span>📍 Dallas, TX</span>
+            <span>📞 (469) 520-6214</span>
+            <span>✉️ meritmdeppe@gmail.com</span>
+          </div>
+        </div>
+        <div class="r-section">
+          <div class="r-section-title">Professional Summary</div>
+          <div class="r-summary">
+            Healthcare professional with 4+ years operating inside clinical environments — pharmacies, patient care interactions, and immunization clinics — with a proven ability to communicate technical product information, influence healthcare decisions, and build durable relationships with clinical staff. Seeking an entry-level medical device sales role where my clinical credibility, communication background, and competitive drive create immediate value. Texas A&M-educated. PTCB certified. Built for a territory, a bag, and a quota.
+          </div>
+        </div>
+        <div class="r-section">
+          <div class="r-section-title">Why Medical Device</div>
+          <ul class="r-bullets">
+            <li>4+ years working alongside pharmacists, nurses, and clinical staff — understands clinical workflow, hierarchy, and how decisions are made at the point of care</li>
+            <li>Hands-on patient administration experience (45+ vaccines) builds instant credibility when talking to HCPs about device usage and patient outcomes</li>
+            <li>Trained to communicate complex information (drug interactions, coverage determinations, clinical protocols) in clear, actionable terms — exactly what device reps do</li>
+          </ul>
+        </div>
+        <div class="r-section">
+          <div class="r-section-title">Professional Experience</div>
+          <div class="r-job">
+            <div class="r-job-header">
+              <div><div class="r-company">CVS Health</div><div class="r-role">Immunizer & Pharmacy Technician</div></div>
+              <div class="r-dates">Jan 2024 – Present · Dallas, TX</div>
+            </div>
+            <ul class="r-bullets">
+              <li>Execute clinical procedures (vaccine administration) requiring technical precision, patient assessment, and protocol compliance — hands-on clinical credibility</li>
+              <li>Educate patients on clinical products: mechanism, expected outcomes, risk profile, and aftercare — direct parallel to device rep product detailing</li>
+              <li>Work within clinical team structures alongside pharmacists and healthcare staff, demonstrating ability to build credibility in professional healthcare environments</li>
+              <li>Increased vaccination volume 20+ doses over prior year through proactive patient outreach and objection resolution</li>
+            </ul>
+          </div>
+          <div class="r-job">
+            <div class="r-job-header">
+              <div><div class="r-company">Las Colinas Pharmacy</div><div class="r-role">Pharmacy Technician</div></div>
+              <div class="r-dates">Mar 2021 – Dec 2024 · Irving, TX</div>
+            </div>
+            <ul class="r-bullets">
+              <li>Managed high-volume patient relationships, processing and resolving coverage and access issues with both patients and insurance representatives</li>
+              <li>Built reputation for reliability and follow-through, generating repeat patient visits and long-term loyalty over 3+ year tenure</li>
+            </ul>
+          </div>
+          <div class="r-job">
+            <div class="r-job-header">
+              <div><div class="r-company">Golf Ranch</div><div class="r-role">Sales Associate</div></div>
+              <div class="r-dates">Aug 2019 – Mar 2020 · Richardson, TX</div>
+            </div>
+            <ul class="r-bullets">
+              <li>Achieved upsell conversions on premium product packages (golf ball bundles, equipment) through needs assessment and product matching</li>
+            </ul>
+          </div>
+        </div>
+        <div class="r-section">
+          <div class="r-section-title">Core Competencies</div>
+          <div class="r-skills-grid">
+            <span class="r-skill">Clinical Environment Navigation</span>
+            <span class="r-skill">HCP Communication</span>
+            <span class="r-skill">Technical Product Education</span>
+            <span class="r-skill">Patient Outcomes Focus</span>
+            <span class="r-skill">Upselling & Cross-Selling</span>
+            <span class="r-skill">Relationship Development</span>
+            <span class="r-skill">Objection Management</span>
+            <span class="r-skill">Protocol Compliance</span>
+          </div>
+        </div>
+        <div class="r-section">
+          <div class="r-section-title">Education & Certifications</div>
+          <div class="r-edu" style="margin-bottom:0.75rem;">
+            <div><div class="r-edu-school">Texas A&M University</div><div class="r-edu-degree">B.S. Communication · Health Communication Certificate</div></div>
+            <div class="r-edu-date">2025</div>
+          </div>
+          <div class="r-certs">
+            <span class="r-cert">PTCB Certified Pharmacy Technician (CPhT)</span>
+            <span class="r-cert">Immunization-Certified (APhA)</span>
+            <span class="r-cert">CNPR — In Progress</span>
+            <span class="r-cert">CPR/AED Certified — American Red Cross</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESUME 3: SPECIALTY PHARMACY -->
+    <div class="resume-pane" id="tab-specialty">
+      <div class="resume-card">
+        <div class="r-header">
+          <div class="r-name">Merit Deppe</div>
+          <div class="r-title">Specialty Pharmacy Sales Representative</div>
+          <div class="r-contact">
+            <span>📍 Dallas, TX</span>
+            <span>📞 (469) 520-6214</span>
+            <span>✉️ meritmdeppe@gmail.com</span>
+          </div>
+        </div>
+        <div class="r-section">
+          <div class="r-section-title">Professional Summary</div>
+          <div class="r-summary">
+            PTCB-certified pharmacy technician with 4+ years of specialty-adjacent clinical experience — including complex prior authorization management, insurance exception resolution, and direct patient counseling on high-cost medications. Understands the specialty pharmacy landscape from the inside: the access barriers, the hub services, the patient journey from Rx to adherence. Transitioning into specialty pharmacy sales with clinical fluency and relationship management skills that take most reps years to develop. CNPR in progress.
+          </div>
+        </div>
+        <div class="r-section">
+          <div class="r-section-title">Specialty-Relevant Experience</div>
+          <ul class="r-bullets">
+            <li>4+ years managing <strong>insurance prior authorizations and coverage exceptions</strong> — core competency for specialty pharmacy access navigation</li>
+            <li>Counseled patients on complex, high-stakes medication decisions (immunizations, multi-drug regimens) with documented hesitancy management and volume outcomes</li>
+            <li>Developed patient adherence relationships over multi-year timeframes at independent pharmacy — mirrors the longitudinal patient management model in specialty</li>
+            <li>Deep understanding of PBM structures, formulary tiers, and step therapy requirements from 4+ years daily interaction with payer systems</li>
+          </ul>
+        </div>
+        <div class="r-section">
+          <div class="r-section-title">Professional Experience</div>
+          <div class="r-job">
+            <div class="r-job-header">
+              <div><div class="r-company">CVS Health</div><div class="r-role">Immunizer & Pharmacy Technician</div></div>
+              <div class="r-dates">Jan 2024 – Present · Dallas, TX</div>
+            </div>
+            <ul class="r-bullets">
+              <li>Manage high-volume patient interactions requiring clinical accuracy, empathy, and rapid trust-building under time pressure</li>
+              <li>Resolve insurance coverage barriers in real time, including formulary exceptions, benefit investigations, and coordination of benefits</li>
+              <li>Administer vaccinations with demonstrated volume growth — 20+ doses above prior year — through education-first patient engagement model</li>
+            </ul>
+          </div>
+          <div class="r-job">
+            <div class="r-job-header">
+              <div><div class="r-company">Las Colinas Pharmacy — Independent</div><div class="r-role">Pharmacy Technician</div></div>
+              <div class="r-dates">Mar 2021 – Dec 2024 · Irving, TX</div>
+            </div>
+            <ul class="r-bullets">
+              <li>Independent pharmacy setting with higher patient complexity and direct pharmacist collaboration — mirrors specialty pharmacy operating model</li>
+              <li>Built multi-year patient relationships across chronic disease populations, supporting medication adherence and refill management</li>
+              <li>Navigated complex insurance scenarios with direct patient and prescriber communication — end-to-end access management experience</li>
+            </ul>
+          </div>
+        </div>
+        <div class="r-section">
+          <div class="r-section-title">Core Competencies</div>
+          <div class="r-skills-grid">
+            <span class="r-skill">Prior Authorization Navigation</span>
+            <span class="r-skill">Formulary & PBM Knowledge</span>
+            <span class="r-skill">Patient Adherence Management</span>
+            <span class="r-skill">HUB Services Familiarity</span>
+            <span class="r-skill">Clinical Counseling</span>
+            <span class="r-skill">Prescriber Relationships</span>
+            <span class="r-skill">Complex Case Management</span>
+            <span class="r-skill">Rare Disease Awareness</span>
+          </div>
+        </div>
+        <div class="r-section">
+          <div class="r-section-title">Education & Certifications</div>
+          <div class="r-edu" style="margin-bottom:0.75rem;">
+            <div><div class="r-edu-school">Texas A&M University</div><div class="r-edu-degree">B.S. Communication · Health Communication Certificate</div></div>
+            <div class="r-edu-date">2025</div>
+          </div>
+          <div class="r-certs">
+            <span class="r-cert">PTCB Certified Pharmacy Technician (CPhT)</span>
+            <span class="r-cert">Texas State Board — Registered Pharmacy Technician</span>
+            <span class="r-cert">Immunization-Certified (APhA)</span>
+            <span class="r-cert">CNPR — In Progress</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESUME 4: ACCOUNT MANAGER -->
+    <div class="resume-pane" id="tab-account">
+      <div class="resume-card">
+        <div class="r-header">
+          <div class="r-name">Merit Deppe</div>
+          <div class="r-title">Healthcare Account Manager</div>
+          <div class="r-contact">
+            <span>📍 Dallas, TX</span>
+            <span>📞 (469) 520-6214</span>
+            <span>✉️ meritmdeppe@gmail.com</span>
+          </div>
+        </div>
+        <div class="r-section">
+          <div class="r-section-title">Professional Summary</div>
+          <div class="r-summary">
+            Healthcare professional with 4+ years of relationship-first account management experience in clinical settings — managing patient accounts, resolving access and coverage challenges, and building long-term trust with a diverse client base. Texas A&M Communication graduate with a Health Communication certificate, trained in persuasion, messaging strategy, and stakeholder management. Recognized for interpersonal skill, emotional intelligence, and consistent delivery in high-volume environments. Now bringing that foundation to healthcare account management at scale.
+          </div>
+        </div>
+        <div class="r-section">
+          <div class="r-section-title">Account Management Achievements</div>
+          <ul class="r-bullets">
+            <li>Retained and grew a long-term patient/account base over <strong>3+ year tenure</strong> at an independent pharmacy through proactive communication and reliable follow-through</li>
+            <li>Managed multi-stakeholder relationships simultaneously — patients, pharmacists, insurers, prescribers — while maintaining accuracy and service quality</li>
+            <li>Built relationships with <strong>76 prospective members</strong> during structured recruitment cycle, converting 11 through personalized, consultative engagement</li>
+            <li>Resolved complex account-level issues (insurance disputes, prior auth denials, coverage gaps) with zero escalation — contained and closed independently</li>
+          </ul>
+        </div>
+        <div class="r-section">
+          <div class="r-section-title">Professional Experience</div>
+          <div class="r-job">
+            <div class="r-job-header">
+              <div><div class="r-company">CVS Health</div><div class="r-role">Patient Relations & Immunization Specialist</div></div>
+              <div class="r-dates">Jan 2024 – Present · Dallas, TX</div>
+            </div>
+            <ul class="r-bullets">
+              <li>Act as primary point of contact for patient account management — coordinating between patients, pharmacists, and insurance providers to resolve coverage issues</li>
+              <li>Maintain service quality across high-volume patient panel; identified as reliable, high-trust resource during peak operational periods</li>
+              <li>Grew immunization program volume through proactive patient education and follow-through — demonstrating ability to drive measurable business outcomes through relationships</li>
+            </ul>
+          </div>
+          <div class="r-job">
+            <div class="r-job-header">
+              <div><div class="r-company">Las Colinas Pharmacy</div><div class="r-role">Pharmacy Technician & Customer Account Lead</div></div>
+              <div class="r-dates">Mar 2021 – Dec 2024 · Irving, TX</div>
+            </div>
+            <ul class="r-bullets">
+              <li>Managed full patient lifecycle: onboarding, ongoing education, issue resolution, and long-term retention over 3+ years</li>
+              <li>Served as liaison between patients and all relevant stakeholders (pharmacists, insurers, prescribers) — multi-party coordination at scale</li>
+              <li>Contributed to a repeat-visit culture through service consistency and personalized relationship management</li>
+            </ul>
+          </div>
+        </div>
+        <div class="r-section">
+          <div class="r-section-title">Core Competencies</div>
+          <div class="r-skills-grid">
+            <span class="r-skill">Account Retention & Growth</span>
+            <span class="r-skill">Multi-Stakeholder Management</span>
+            <span class="r-skill">Issue Resolution</span>
+            <span class="r-skill">CRM & Documentation</span>
+            <span class="r-skill">Cross-Functional Coordination</span>
+            <span class="r-skill">Health Plan Navigation</span>
+            <span class="r-skill">Consultative Communication</span>
+            <span class="r-skill">Presentation & Reporting</span>
+          </div>
+        </div>
+        <div class="r-section">
+          <div class="r-section-title">Education & Certifications</div>
+          <div class="r-edu" style="margin-bottom:0.75rem;">
+            <div><div class="r-edu-school">Texas A&M University</div><div class="r-edu-degree">B.S. Communication · Health Communication Certificate · Kappa Delta</div></div>
+            <div class="r-edu-date">2025</div>
+          </div>
+          <div class="r-certs">
+            <span class="r-cert">PTCB Certified Pharmacy Technician (CPhT)</span>
+            <span class="r-cert">Immunization-Certified (APhA)</span>
+            <span class="r-cert">CNPR — In Progress</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESUME 5: CLINICAL LIAISON -->
+    <div class="resume-pane" id="tab-liaison">
+      <div class="resume-card">
+        <div class="r-header">
+          <div class="r-name">Merit Deppe</div>
+          <div class="r-title">Clinical Liaison / Healthcare Educator</div>
+          <div class="r-contact">
+            <span>📍 Dallas, TX</span>
+            <span>📞 (469) 520-6214</span>
+            <span>✉️ meritmdeppe@gmail.com</span>
+          </div>
+        </div>
+        <div class="r-section">
+          <div class="r-section-title">Professional Summary</div>
+          <div class="r-summary">
+            Clinical healthcare professional with 4+ years of patient-facing experience, a B.S. in Communication, and a Texas A&M Certificate in Health Communication — a rare combination of scientific literacy and strategic messaging. Demonstrated ability to translate complex clinical information into patient-centered language that drives action, builds trust, and improves outcomes. Experienced working within clinical team structures alongside pharmacists and nurses. Targeting clinical liaison or healthcare education roles where the gap between clinical expertise and human understanding is closed through communication.
+          </div>
+        </div>
+        <div class="r-section">
+          <div class="r-section-title">Clinical Education Highlights</div>
+          <ul class="r-bullets">
+            <li>Administered 45+ immunizations with patient education component — addressed hesitancy, explained mechanism of action, managed post-administration concerns in real time</li>
+            <li>Counseled patients on complex medication regimens, insurance coverage gaps, and adherence strategies across 4+ years and thousands of patient interactions</li>
+            <li>Trained in <strong>Health Communication theory and practice</strong> at Texas A&M — message framing, health literacy, behavior change, and risk communication</li>
+            <li>Served as orientation camp counselor at Texas A&M — peer education, resource communication, group facilitation for incoming students</li>
+          </ul>
+        </div>
+        <div class="r-section">
+          <div class="r-section-title">Professional Experience</div>
+          <div class="r-job">
+            <div class="r-job-header">
+              <div><div class="r-company">CVS Health</div><div class="r-role">Immunizer & Patient Education Specialist</div></div>
+              <div class="r-dates">Jan 2024 – Present · Dallas, TX</div>
+            </div>
+            <ul class="r-bullets">
+              <li>Deliver structured patient education on vaccine science, benefit-risk communication, and post-care protocols to diverse patient populations</li>
+              <li>Navigate vaccine hesitancy using motivational and empathy-based communication — evidence-based approach aligned with health communication best practices</li>
+              <li>Coordinate with clinical team (pharmacists, nurses) to ensure accurate, consistent patient messaging across the care team</li>
+            </ul>
+          </div>
+          <div class="r-job">
+            <div class="r-job-header">
+              <div><div class="r-company">Las Colinas Pharmacy</div><div class="r-role">Patient Education & Pharmacy Technician</div></div>
+              <div class="r-dates">Mar 2021 – Dec 2024 · Irving, TX</div>
+            </div>
+            <ul class="r-bullets">
+              <li>Primary patient education resource for medication counseling, insurance navigation, and care coordination across a broad chronic disease population</li>
+              <li>Built long-term educational relationships with patients — supporting sustained health behavior change through consistent, personalized communication</li>
+            </ul>
+          </div>
+        </div>
+        <div class="r-section">
+          <div class="r-section-title">Core Competencies</div>
+          <div class="r-skills-grid">
+            <span class="r-skill">Health Literacy Communication</span>
+            <span class="r-skill">Behavior Change Messaging</span>
+            <span class="r-skill">Clinical Team Collaboration</span>
+            <span class="r-skill">Patient Education Program Design</span>
+            <span class="r-skill">Risk Communication</span>
+            <span class="r-skill">Group Facilitation</span>
+            <span class="r-skill">Motivational Interviewing</span>
+            <span class="r-skill">Documentation & Reporting</span>
+          </div>
+        </div>
+        <div class="r-section">
+          <div class="r-section-title">Education & Certifications</div>
+          <div class="r-edu" style="margin-bottom:0.75rem;">
+            <div><div class="r-edu-school">Texas A&M University</div><div class="r-edu-degree">B.S. Communication · Certificate in Health Communication (Dual)</div></div>
+            <div class="r-edu-date">2025</div>
+          </div>
+          <div class="r-certs">
+            <span class="r-cert">PTCB Certified Pharmacy Technician (CPhT)</span>
+            <span class="r-cert">Immunization-Certified (APhA) — Clinical Administration Qualified</span>
+            <span class="r-cert">Texas State Board — Registered Pharmacy Technician</span>
+            <span class="r-cert">CNPR — In Progress</span>
+            <span class="r-cert">Adult & Pediatric First Aid / CPR / AED</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-label">Let's Connect</div>
+    <h2 class="section-title">Ready to Talk</h2>
+    <p>Dallas-based and open to opportunities across the DFW Metroplex and beyond. Response within 24 hours.</p>
+    <div class="contact-links">
+      <a href="tel:4695206214" class="contact-item">📞 (469) 520-6214</a>
+      <a href="mailto:meritmdeppe@gmail.com" class="contact-item">✉️ meritmdeppe@gmail.com</a>
+      <a href="https://www.linkedin.com/in/meritdeppe" target="_blank" class="contact-item">💼 LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Merit Deppe · Dallas, TX · meritmdeppe@gmail.com · Built to compete.
+</footer>
+
+<script>
+  function showTab(id) {
+    document.querySelectorAll('.resume-pane').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  // Animate skill bars on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.skill-fill').forEach(bar => {
+          bar.style.width = bar.getAttribute('data-width');
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('.skills-section').forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
