@@ -273,6 +273,16 @@ h1.hero-name .last{display:block;background:linear-gradient(90deg,var(--cyan),va
 
 footer{background:var(--bg);border-top:1px solid var(--border);text-align:center;padding:1.25rem;font-family:'DM Mono',monospace;font-size:0.65rem;color:rgba(255,255,255,0.2)}
 
+/* PRINT */
+@media print{
+  nav,footer,.hero,.timeline-sect,.data-sect,.creds-sect,.contact-sect,.ekg-wrap,.hex-bg,.tab-bar{display:none!important}
+  body,html{background:#fff!important;color:#1e293b!important}
+  .resumes-sect{padding:0!important;background:#fff!important}
+  .rpane{display:none!important}
+  .rpane.print-active{display:block!important}
+  .rdoc{box-shadow:none!important;border-radius:0!important;max-width:100%!important}
+}
+
 /* ANIMATIONS */
 .fade-in{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
 .fade-in.vis{opacity:1;transform:none}
@@ -290,6 +300,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);text-align:center
     <li><a href="#creds">Credentials</a></li>
     <li><a href="#resumes">Resumes</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><a href="https://linkedin.com/in/merit-deppe" target="_blank" style="color:var(--cyan)!important">LinkedIn ↗</a></li>
   </ul>
 </nav>
 
@@ -355,6 +366,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);text-align:center
         <div class="vital-row"><span class="vital-key">CNPR</span><span class="vital-val warn">IN PROGRESS</span></div>
         <div class="vital-row"><span class="vital-key">Availability</span><span class="vital-val">IMMEDIATE</span></div>
         <div class="vital-row"><span class="vital-key">Target Role</span><span class="vital-val warn">PHARMA SALES</span></div>
+        <div class="vital-row"><span class="vital-key">LinkedIn</span><a href="https://linkedin.com/in/merit-deppe" target="_blank" style="color:var(--cyan);font-family:'DM Mono',monospace;font-size:0.8rem;font-weight:500;text-decoration:none">/in/merit-deppe ↗</a></div>
       </div>
     </div>
   </div>
@@ -516,7 +528,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);text-align:center
               <circle cx="40" cy="40" r="32" fill="none" stroke="url(#rg4)" stroke-width="6" stroke-linecap="round" stroke-dasharray="201" stroke-dashoffset="201" class="ring-arc" data-target="85"/>
               <defs><linearGradient id="rg4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#22d3ee"/><stop offset="100%" stop-color="#10b981"/></linearGradient></defs>
             </svg>
-            <div class="ring-val ring-display" data-final="4+yrs">0</div>
+            <div class="ring-val ring-display" data-final="4+yr">0</div>
             <div class="ring-label">Clinical Experience</div>
             <div class="ring-sub">2 pharmacies, thousands of patients</div>
           </div>
@@ -586,6 +598,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);text-align:center
       <div class="tab" onclick="showTab('sp',this)">⚕️ Specialty Pharmacy</div>
       <div class="tab" onclick="showTab('am',this)">📊 Account Manager</div>
       <div class="tab" onclick="showTab('cl',this)">🤝 Clinical Liaison</div>
+      <div style="flex:1"></div>
+      <button onclick="printResume()" style="margin:0.4rem 0;padding:0.5rem 1.1rem;background:var(--cyan);color:#07090f;font-size:0.72rem;font-weight:700;border:none;border-radius:6px;cursor:pointer;letter-spacing:0.5px;display:flex;align-items:center;gap:0.4rem;font-family:'DM Sans',sans-serif">⬇ Download PDF</button>
     </div>
 
     <!-- PHARMA SALES -->
@@ -1055,6 +1069,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);text-align:center
     <div class="contact-pills">
       <a href="tel:4695206214" class="cpill">📞 (469) 520-6214</a>
       <a href="mailto:meritmdeppe@gmail.com" class="cpill">✉️ meritmdeppe@gmail.com</a>
+      <a href="https://linkedin.com/in/merit-deppe" target="_blank" class="cpill">💼 LinkedIn</a>
       <a href="https://instagram.com/meritdeppe" target="_blank" class="cpill">📸 @meritdeppe</a>
     </div>
   </div>
@@ -1176,6 +1191,26 @@ function showTab(id,el){
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
   document.getElementById('tab-'+id).classList.add('active');
   el.classList.add('active');
+}
+
+// Add LinkedIn to all sidebar contact sections
+document.querySelectorAll('.rs-contact-item').forEach(el=>{
+  if(el.textContent.includes('meritmdeppe@gmail.com')){
+    const li=document.createElement('div');
+    li.className='rs-contact-item';
+    li.innerHTML='💼 <a href="https://linkedin.com/in/merit-deppe" target="_blank" style="color:#94a3b8;text-decoration:none">/in/merit-deppe</a>';
+    el.parentNode.insertBefore(li,el.nextSibling);
+  }
+});
+
+// PRINT/DOWNLOAD
+function printResume(){
+  const active=document.querySelector('.rpane.active');
+  if(!active)return;
+  document.querySelectorAll('.rpane').forEach(p=>p.classList.remove('print-active'));
+  active.classList.add('print-active');
+  window.print();
+  setTimeout(()=>active.classList.remove('print-active'),1000);
 }
 
 // TOUCH DRAG timeline
