@@ -184,39 +184,86 @@ h1.hero-name .last{display:block;background:linear-gradient(90deg,var(--cyan),va
 .tab{padding:0.875rem 1.25rem;color:var(--muted);cursor:pointer;font-size:0.75rem;font-weight:600;letter-spacing:0.5px;border-bottom:2px solid transparent;white-space:nowrap;transition:all 0.2s;display:flex;align-items:center;gap:0.4rem;user-select:none}
 .tab:hover{color:rgba(255,255,255,0.7)}
 .tab.active{color:var(--cyan);border-bottom-color:var(--cyan)}
-
 .rpane{display:none}
 .rpane.active{display:block;animation:fadeSlide 0.35s ease}
 @keyframes fadeSlide{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
-/* Resume doc */
-.rdoc{background:#fff;color:#0f172a;border-radius:12px;padding:3rem;max-width:740px;margin:0 auto;box-shadow:0 40px 80px rgba(0,0,0,0.6)}
-@media(max-width:600px){.rdoc{padding:1.5rem}}
-.rd-head{border-bottom:2px solid #0f172a;padding-bottom:1.1rem;margin-bottom:1.4rem}
-.rd-name{font-size:2.2rem;font-weight:800;color:#0f172a;letter-spacing:-1px;line-height:1}
-.rd-role{font-family:'DM Mono',monospace;font-size:0.7rem;color:#06b6d4;letter-spacing:2px;text-transform:uppercase;margin:0.35rem 0 0.7rem;font-weight:500}
-.rd-contact{display:flex;flex-wrap:wrap;gap:1.25rem;font-size:0.75rem;color:#64748b;font-family:'DM Mono',monospace}
-.rd-s{margin-bottom:1.4rem}
-.rd-sh{font-family:'DM Mono',monospace;font-size:0.6rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#0f172a;border-bottom:1px solid #e2e8f0;padding-bottom:0.3rem;margin-bottom:0.8rem}
-.rd-sum{font-size:0.82rem;color:#475569;line-height:1.75}
-.rd-job{margin-bottom:1.2rem}
-.rd-jh{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.4rem;margin-bottom:0.15rem}
-.rd-co{font-weight:800;font-size:0.87rem;color:#0f172a}
-.rd-jr{font-size:0.75rem;font-weight:700;color:#06b6d4;margin-top:0.1rem}
-.rd-dt{font-family:'DM Mono',monospace;font-size:0.68rem;color:#94a3b8;white-space:nowrap}
-.rd-ul{list-style:none;margin-top:0.4rem}
-.rd-ul li{font-size:0.78rem;color:#475569;line-height:1.6;padding-left:1rem;position:relative;margin-bottom:0.2rem}
-.rd-ul li::before{content:'›';position:absolute;left:0;color:#06b6d4;font-weight:700}
-.rd-ul li strong{color:#1e293b}
-.rd-skills{display:flex;flex-wrap:wrap;gap:0.35rem}
-.rd-sk{background:#f1f5f9;border:1px solid #e2e8f0;border-radius:4px;padding:0.22rem 0.65rem;font-size:0.68rem;font-weight:700;color:#334155;font-family:'DM Mono',monospace}
-.rd-certs{display:flex;flex-direction:column;gap:0.35rem}
-.rd-ct{font-size:0.76rem;color:#475569;display:flex;align-items:flex-start;gap:0.4rem}
-.rd-ct::before{content:'✓';color:#06b6d4;font-weight:800;flex-shrink:0}
-.rd-edu-r{display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.4rem;margin-bottom:0.4rem}
-.rd-school{font-weight:800;font-size:0.87rem;color:#0f172a}
-.rd-deg{font-size:0.75rem;color:#64748b;margin-top:0.1rem}
-.rd-yr{font-family:'DM Mono',monospace;font-size:0.68rem;color:#94a3b8}
+/* ── TWO-COLUMN RESUME DOCUMENT ── */
+.rdoc{
+  display:grid;grid-template-columns:1fr 260px;
+  max-width:820px;margin:0 auto;
+  border-radius:14px;overflow:hidden;
+  box-shadow:0 40px 80px rgba(0,0,0,0.65);
+  font-family:'DM Sans',sans-serif;
+}
+@media(max-width:640px){.rdoc{grid-template-columns:1fr;}}
+
+/* MAIN COLUMN (left) */
+.rm{background:#fff;color:#1e293b;padding:2.25rem 2rem;}
+.rm-name{font-size:2.1rem;font-weight:800;color:#0f172a;letter-spacing:-1px;line-height:1;margin-bottom:0.2rem}
+.rm-role{font-size:0.72rem;font-weight:700;color:#0891b2;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:0.9rem}
+.rm-contact-row{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:1.4rem;padding-bottom:1rem;border-bottom:2px solid #0f172a}
+.rm-ci{font-size:0.72rem;color:#64748b;display:flex;align-items:center;gap:0.3rem}
+.rm-s{margin-bottom:1.3rem}
+.rm-sh{
+  font-size:0.62rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;
+  color:#0f172a;border-bottom:2px solid #0f172a;
+  padding-bottom:0.3rem;margin-bottom:0.8rem;
+  display:flex;align-items:center;gap:0.5rem;
+}
+.rm-sh::after{content:'';flex:1;height:2px;background:linear-gradient(90deg,#0891b2,transparent);margin-left:0.5rem}
+.rm-sum{font-size:0.81rem;color:#475569;line-height:1.75}
+.rm-job{margin-bottom:1.1rem}
+.rm-jh{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.3rem;margin-bottom:0.1rem}
+.rm-co{font-weight:800;font-size:0.87rem;color:#0f172a}
+.rm-jr{font-size:0.74rem;font-weight:700;color:#0891b2;margin-top:0.1rem}
+.rm-dt{font-size:0.68rem;color:#94a3b8;white-space:nowrap;font-variant-numeric:tabular-nums}
+.rm-ul{list-style:none;margin-top:0.4rem}
+.rm-ul li{font-size:0.77rem;color:#475569;line-height:1.6;padding-left:1rem;position:relative;margin-bottom:0.2rem}
+.rm-ul li::before{content:'▸';position:absolute;left:0;color:#0891b2;font-size:0.6rem;top:3px}
+.rm-ul li strong{color:#1e293b}
+/* Achievements */
+.rm-ach{display:flex;flex-direction:column;gap:0.6rem}
+.rm-ach-item{display:flex;gap:0.75rem;align-items:flex-start;padding:0.65rem;background:#f8fafc;border-radius:8px;border-left:3px solid #0891b2}
+.rm-ach-icon{font-size:1.1rem;flex-shrink:0;margin-top:0.05rem}
+.rm-ach-title{font-size:0.78rem;font-weight:700;color:#0f172a;line-height:1.2}
+.rm-ach-body{font-size:0.72rem;color:#64748b;line-height:1.4;margin-top:0.15rem}
+
+/* SIDEBAR COLUMN (right) */
+.rs{background:#0c2340;color:#e2e8f0;padding:2rem 1.5rem;display:flex;flex-direction:column;gap:1.5rem}
+.rs-photo{width:90px;height:90px;border-radius:50%;border:3px solid rgba(34,211,238,0.4);object-fit:cover;margin:0 auto;display:block}
+.rs-name-sm{text-align:center;font-size:0.75rem;font-weight:700;color:#22d3ee;letter-spacing:1px;margin-top:0.5rem}
+
+.rs-sh{font-size:0.58rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:#22d3ee;border-bottom:1px solid rgba(34,211,238,0.2);padding-bottom:0.35rem;margin-bottom:0.75rem}
+
+/* Skill dots */
+.rs-skill-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.6rem}
+.rs-skill-name{font-size:0.73rem;color:#cbd5e1}
+.rs-dots{display:flex;gap:3px}
+.rs-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.15);transition:background 0.3s}
+.rs-dot.on{background:#22d3ee}
+.rs-dot.half{background:rgba(34,211,238,0.5)}
+
+/* Cert badges */
+.rs-cert{
+  display:flex;align-items:center;gap:0.5rem;
+  background:rgba(34,211,238,0.08);
+  border:1px solid rgba(34,211,238,0.2);
+  border-radius:6px;padding:0.5rem 0.65rem;
+  margin-bottom:0.5rem;
+}
+.rs-cert-dot{width:6px;height:6px;border-radius:50%;background:#22d3ee;flex-shrink:0}
+.rs-cert-dot.gold{background:#f59e0b}
+.rs-cert-dot.purple{background:#a78bfa}
+.rs-cert-text{font-size:0.7rem;color:#e2e8f0;line-height:1.3;font-weight:500}
+
+/* Contact sidebar */
+.rs-contact-item{font-size:0.7rem;color:#94a3b8;display:flex;align-items:flex-start;gap:0.4rem;margin-bottom:0.5rem;line-height:1.4}
+
+/* Stat pill */
+.rs-stat{text-align:center;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.25);border-radius:8px;padding:0.75rem;margin-bottom:0.5rem}
+.rs-stat-n{font-size:1.5rem;font-weight:800;color:#34d399;line-height:1}
+.rs-stat-l{font-size:0.63rem;color:#94a3b8;margin-top:0.2rem;line-height:1.3}
 
 /* ═══════ CONTACT ═══════ */
 .contact-sect{background:var(--bg2);text-align:center;padding:5rem 2rem}
@@ -531,7 +578,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);text-align:center
   <div class="c">
     <div class="label fade-in">// 5 Targeted Versions</div>
     <h2 class="title fade-in">Resumes Built to Win</h2>
-    <p class="sub fade-in">Each version makes a different argument. Same candidate, five different industries, five different reasons she's the right hire.</p>
+    <p class="sub fade-in">Each version makes a different argument for a different industry. Same candidate — five different reasons she's the right hire.</p>
 
     <div class="tab-bar">
       <div class="tab active" onclick="showTab('ph',this)">💊 Pharma Sales</div>
@@ -541,152 +588,464 @@ footer{background:var(--bg);border-top:1px solid var(--border);text-align:center
       <div class="tab" onclick="showTab('cl',this)">🤝 Clinical Liaison</div>
     </div>
 
-    <!-- PHARMA -->
+    <!-- PHARMA SALES -->
     <div class="rpane active" id="tab-ph">
       <div class="rdoc">
-        <div class="rd-head">
-          <div class="rd-name">Merit Deppe</div>
-          <div class="rd-role">Pharmaceutical Sales Representative</div>
-          <div class="rd-contact"><span>📍 Dallas, TX</span><span>📞 (469) 520-6214</span><span>✉️ meritmdeppe@gmail.com</span></div>
+        <div class="rm">
+          <div class="rm-name">MERIT DEPPE</div>
+          <div class="rm-role">Pharmaceutical Sales Representative</div>
+          <div class="rm-contact-row">
+            <span class="rm-ci">📍 Dallas, TX</span>
+            <span class="rm-ci">📞 (469) 520-6214</span>
+            <span class="rm-ci">✉️ meritmdeppe@gmail.com</span>
+          </div>
+          <div class="rm-s">
+            <div class="rm-sh">Professional Summary</div>
+            <div class="rm-sum">Results-driven healthcare professional with 4+ years of patient-facing clinical experience and a proven ability to build trust rapidly, navigate objections, and drive measurable volume outcomes. PTCB-certified pharmacy technician and immunization-certified professional entering pharmaceutical sales with a clinical foundation most entry-level reps simply don't have — real formulary knowledge, real prior authorization experience, and a documented track record of growing program volume. Texas A&amp;M Communication graduate with Health Communication certificate. CNPR in progress.</div>
+          </div>
+          <div class="rm-s">
+            <div class="rm-sh">Key Achievements</div>
+            <div class="rm-ach">
+              <div class="rm-ach-item"><span class="rm-ach-icon">💉</span><div><div class="rm-ach-title">20+ Dose Volume Increase — Single Flu Season</div><div class="rm-ach-body">Drove vaccination volume above prior year through proactive patient education and hesitancy management at CVS Health, Dallas. Administered 45+ vaccines in two months.</div></div></div>
+              <div class="rm-ach-item"><span class="rm-ach-icon">🤝</span><div><div class="rm-ach-title">76 Prospective Relationships → 11 Conversions</div><div class="rm-ach-body">Consistently selected to lead competitive Panhellenic recruitment at A&amp;M. 90%+ participation rate senior year — a structured multi-round consultative persuasion process.</div></div></div>
+              <div class="rm-ach-item"><span class="rm-ach-icon">📋</span><div><div class="rm-ach-title">Complex PA & Insurance Resolution — 4+ Years</div><div class="rm-ach-body">Navigated prior authorizations, formulary exceptions, and coverage disputes autonomously across both a chain and independent pharmacy setting.</div></div></div>
+            </div>
+          </div>
+          <div class="rm-s">
+            <div class="rm-sh">Experience</div>
+            <div class="rm-job">
+              <div class="rm-jh"><div><div class="rm-co">CVS Health — Dallas, TX</div><div class="rm-jr">Immunizer & Pharmacy Technician</div></div><div class="rm-dt">Jan 2024 – Present</div></div>
+              <ul class="rm-ul">
+                <li>Conduct one-on-one patient consultations on vaccine benefits, contraindications, and post-care — structurally identical to rep–physician product detailing</li>
+                <li>Resolve patient objections using an empathy-driven consultative approach; documented 20+ dose increase in volume over prior year</li>
+                <li>Navigate formulary restrictions, prior authorizations, and benefit structures — core knowledge for payer-side pharma sales conversations</li>
+              </ul>
+            </div>
+            <div class="rm-job">
+              <div class="rm-jh"><div><div class="rm-co">Las Colinas Pharmacy — Irving, TX</div><div class="rm-jr">Pharmacy Technician & Patient Relations</div></div><div class="rm-dt">Mar 2021 – Dec 2024</div></div>
+              <ul class="rm-ul">
+                <li>Maintained <strong>3+ year patient relationships</strong> through reliability and personalized communication — the foundation of a sustainable sales territory</li>
+                <li>Educated patients on medication regimens, side effects, and adherence strategies — applicable directly to HCP product detailing</li>
+                <li>Resolved insurance disputes and PA denials autonomously, advocating for patient access across complex payer environments</li>
+              </ul>
+            </div>
+            <div class="rm-job">
+              <div class="rm-jh"><div><div class="rm-co">Golf Ranch — Richardson, TX</div><div class="rm-jr">Sales Associate</div></div><div class="rm-dt">Aug 2019 – Mar 2020</div></div>
+              <ul class="rm-ul"><li>Upsold premium golf packages and bundles through needs assessment and benefit-led recommendations — first documented sales conversion experience</li></ul>
+            </div>
+          </div>
         </div>
-        <div class="rd-s"><div class="rd-sh">Professional Summary</div>
-        <div class="rd-sum">Results-driven healthcare professional with 4+ years of patient-facing clinical experience and a proven ability to build trust rapidly, navigate objections, and drive measurable volume outcomes. PTCB-certified pharmacy technician and immunization-certified professional entering pharmaceutical sales with a clinical foundation most entry-level reps don't have: real formulary knowledge, real prior authorization experience, and a documented track record of growing program volume through education-first patient engagement. Texas A&M-educated. CNPR in progress.</div></div>
-        <div class="rd-s"><div class="rd-sh">Performance Highlights</div>
-        <ul class="rd-ul">
-          <li>Drove a <strong>20+ dose increase in flu vaccination volume</strong> over prior year through proactive patient education and hesitancy resolution — measurable revenue impact</li>
-          <li>Administered <strong>45+ vaccinations in a single two-month period</strong> while simultaneously managing full pharmacy technician responsibilities at CVS Health</li>
-          <li>Managed complex insurance and prior authorization challenges across a high-volume patient panel, reducing prescription abandonment and improving access outcomes</li>
-          <li>Built relationships with <strong>76 prospective Panhellenic members</strong> during competitive multi-round recruitment — converting 11 through consultative, rapport-first engagement</li>
-          <li>Consistently selected to lead high-stakes recruitment conversations: <strong>90%+ participation rate senior year</strong>, reflecting sustained trust in her ability to represent and convert</li>
-        </ul></div>
-        <div class="rd-s"><div class="rd-sh">Professional Experience</div>
-        <div class="rd-job">
-          <div class="rd-jh"><div><div class="rd-co">CVS Health — Dallas, TX</div><div class="rd-jr">Immunizer & Pharmacy Technician</div></div><div class="rd-dt">Jan 2024 – Present</div></div>
-          <ul class="rd-ul">
-            <li>Conduct individualized patient consultations on vaccine benefits, contraindications, and post-administration care — structurally identical to rep–physician product detailing</li>
-            <li>Resolve patient objections (hesitancy, cost, prior reactions) using an empathy-driven consultative approach with documented volume growth outcomes</li>
-            <li>Navigate insurance benefit structures, formulary restrictions, and prior authorizations — core knowledge for every pharma sales conversation</li>
-          </ul>
-        </div>
-        <div class="rd-job">
-          <div class="rd-jh"><div><div class="rd-co">Las Colinas Pharmacy — Irving, TX</div><div class="rd-jr">Pharmacy Technician & Patient Relations</div></div><div class="rd-dt">Mar 2021 – Dec 2024</div></div>
-          <ul class="rd-ul">
-            <li>Maintained long-term patient relationships over <strong>3+ year tenure</strong> through reliability, follow-through, and personalized communication — the foundation of a sustainable territory</li>
-            <li>Educated patients on complex medication regimens, side effects, and adherence strategies — applicable to HCP product detailing</li>
-            <li>Resolved insurance disputes and prior auth denials autonomously, advocating for patient access across complex payer landscapes</li>
-          </ul>
-        </div>
-        <div class="rd-job">
-          <div class="rd-jh"><div><div class="rd-co">Golf Ranch — Richardson, TX</div><div class="rd-jr">Sales Associate</div></div><div class="rd-dt">Aug 2019 – Mar 2020</div></div>
-          <ul class="rd-ul"><li>Upsold premium golf packages and bundles through needs assessment and benefit-led recommendations — first documented sales conversion experience</li></ul>
-        </div></div>
-        <div class="rd-s"><div class="rd-sh">Core Competencies</div>
-        <div class="rd-skills"><span class="rd-sk">Consultative Selling</span><span class="rd-sk">Objection Handling</span><span class="rd-sk">Clinical Communication</span><span class="rd-sk">Formulary & PBM</span><span class="rd-sk">Prior Authorization</span><span class="rd-sk">Relationship Management</span><span class="rd-sk">Patient Education</span><span class="rd-sk">Pharmaceutical Terminology</span><span class="rd-sk">CRM & Documentation</span><span class="rd-sk">Territory Planning</span></div></div>
-        <div class="rd-s"><div class="rd-sh">Education & Certifications</div>
-        <div class="rd-edu-r"><div><div class="rd-school">Texas A&M University</div><div class="rd-deg">B.S. Communication · Certificate in Health Communication · Kappa Delta (2021–2025)</div></div><div class="rd-yr">2025</div></div>
-        <div class="rd-certs"><span class="rd-ct">PTCB Certified Pharmacy Technician (CPhT) — Active</span><span class="rd-ct">Immunization-Certified Pharmacy Technician (APhA) — Active</span><span class="rd-ct">Texas State Board of Pharmacy — Registered Pharmacy Technician</span><span class="rd-ct">CNPR — Certified National Pharmaceutical Representative (In Progress)</span><span class="rd-ct">Adult & Pediatric First Aid / CPR / AED — American Red Cross</span></div></div>
+          <div class="rs">
+    <img class="rs-photo" src="data:image/jpeg;base64,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" alt="Merit Deppe">
+    <div class="rs-name-sm">Pharma Sales</div>
+
+    <div>
+      <div class="rs-sh">Core Skills</div>
+      <div class="rs-skill-row"><span class="rs-skill-name">Patient Communication</span><div class="rs-dots"><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div></div></div>
+      <div class="rs-skill-row"><span class="rs-skill-name">Clinical Knowledge</span><div class="rs-dots"><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot half"></div></div></div>
+      <div class="rs-skill-row"><span class="rs-skill-name">Objection Handling</span><div class="rs-dots"><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot"></div></div></div>
+      <div class="rs-skill-row"><span class="rs-skill-name">Relationship Mgmt</span><div class="rs-dots"><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div></div></div>
+      <div class="rs-skill-row"><span class="rs-skill-name">PBM / Formulary</span><div class="rs-dots"><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot"></div></div></div>
+      <div class="rs-skill-row"><span class="rs-skill-name">Consultative Sell</span><div class="rs-dots"><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot half"></div></div></div>
+    </div>
+
+    <div>
+      <div class="rs-sh">Certifications</div>
+      <div class="rs-cert"><div class="rs-cert-dot"></div><div class="rs-cert-text">CPhT — PTCB Certified Pharmacy Technician</div></div>
+      <div class="rs-cert"><div class="rs-cert-dot"></div><div class="rs-cert-text">Immunization-Certified — APhA</div></div>
+      <div class="rs-cert"><div class="rs-cert-dot"></div><div class="rs-cert-text">TX State Board — Registered Tech</div></div>
+      <div class="rs-cert" style="opacity:0.7"><div class="rs-cert-dot gold"></div><div class="rs-cert-text">CNPR — In Progress</div></div>
+      <div class="rs-cert"><div class="rs-cert-dot purple"></div><div class="rs-cert-text">CPR / AED — American Red Cross</div></div>
+      
+    </div>
+
+    <div>
+      <div class="rs-sh">Key Stats</div>
+      <div class="rs-stat"><div class="rs-stat-n">45+</div><div class="rs-stat-l">Vaccines Administered</div></div>
+      <div class="rs-stat"><div class="rs-stat-n">76</div><div class="rs-stat-l">Relationships Built in Recruitment</div></div>
+      <div class="rs-stat"><div class="rs-stat-n">4+yr</div><div class="rs-stat-l">Patient-Facing Clinical Experience</div></div>
+    </div>
+
+    <div>
+      <div class="rs-sh">Contact</div>
+      <div class="rs-contact-item">📍 Dallas, Texas</div>
+      <div class="rs-contact-item">📞 (469) 520-6214</div>
+      <div class="rs-contact-item">✉️ meritmdeppe@gmail.com</div>
+    </div>
+
+    <div>
+      <div class="rs-sh">Education</div>
+      <div style="font-size:0.78rem;font-weight:700;color:#e2e8f0;margin-bottom:0.15rem">Texas A&amp;M University</div>
+      <div style="font-size:0.7rem;color:#94a3b8;line-height:1.4">B.S. Communication<br>Health Communication Certificate<br>Kappa Delta · 2021–2025<br><span style="color:#22d3ee">Graduated 2025</span></div>
+    </div>
+  </div>
       </div>
     </div>
 
-    <!-- DEVICE -->
+    <!-- MEDICAL DEVICE -->
     <div class="rpane" id="tab-dv">
       <div class="rdoc">
-        <div class="rd-head"><div class="rd-name">Merit Deppe</div><div class="rd-role">Medical Device Sales Representative</div><div class="rd-contact"><span>📍 Dallas, TX</span><span>📞 (469) 520-6214</span><span>✉️ meritmdeppe@gmail.com</span></div></div>
-        <div class="rd-s"><div class="rd-sh">Professional Summary</div><div class="rd-sum">Healthcare professional with 4+ years operating inside clinical environments — pharmacies, immunization clinics, patient care settings — with a proven ability to communicate technical product information, influence HCP decisions, and build lasting relationships with clinical staff. Targeting entry-level medical device sales where clinical credibility, a Communication degree, and competitive drive create immediate territory impact. Texas A&M graduate. PTCB certified. Ready for a bag and a quota.</div></div>
-        <div class="rd-s"><div class="rd-sh">Clinical Credibility — The Device Sales Advantage</div>
-        <ul class="rd-ul">
-          <li>4+ years alongside pharmacists, nurses, and clinical staff — understands <strong>HCP workflow, team hierarchy, and clinical decision-making</strong> from the inside</li>
-          <li>Hands-on patient administration experience (45+ vaccines) provides instant credibility when discussing device usage and patient outcomes with HCPs</li>
-          <li>Trained to translate complex clinical information into clear, actionable language — exactly what separates top device reps from average ones</li>
-          <li>Texas A&M Health Communication Certificate: formal training in behavior change and message framing — goes beyond the product spec sheet</li>
-        </ul></div>
-        <div class="rd-s"><div class="rd-sh">Professional Experience</div>
-        <div class="rd-job"><div class="rd-jh"><div><div class="rd-co">CVS Health — Dallas, TX</div><div class="rd-jr">Immunizer & Pharmacy Technician</div></div><div class="rd-dt">Jan 2024 – Present</div></div>
-        <ul class="rd-ul"><li>Execute clinical procedures (vaccine administration) requiring technical precision and protocol compliance — demonstrated hands-on clinical credibility</li><li>Educate patients on product mechanism, outcomes, risks, and aftercare — direct parallel to medical device detailing</li><li>Build trust within clinical team structures alongside pharmacists and nurses — experience gaining credibility in professional clinical environments quickly</li><li>Grew vaccination volume 20+ doses above prior year through education-first patient engagement</li></ul></div>
-        <div class="rd-job"><div class="rd-jh"><div><div class="rd-co">Las Colinas Pharmacy — Irving, TX</div><div class="rd-jr">Pharmacy Technician</div></div><div class="rd-dt">Mar 2021 – Dec 2024</div></div>
-        <ul class="rd-ul"><li>Managed complex patient and provider relationships, resolving coverage and access issues across patients, insurers, and prescribers simultaneously</li><li>Built repeat-engagement reputation over 3+ years through service reliability and follow-through — the foundation of a sustainable territory</li></ul></div></div>
-        <div class="rd-s"><div class="rd-sh">Core Competencies</div><div class="rd-skills"><span class="rd-sk">Clinical Navigation</span><span class="rd-sk">HCP Communication</span><span class="rd-sk">Technical Product Education</span><span class="rd-sk">Patient Outcomes Focus</span><span class="rd-sk">Upselling</span><span class="rd-sk">Relationship Development</span><span class="rd-sk">Objection Management</span><span class="rd-sk">Protocol Compliance</span></div></div>
-        <div class="rd-s"><div class="rd-sh">Education & Certifications</div>
-        <div class="rd-edu-r"><div><div class="rd-school">Texas A&M University</div><div class="rd-deg">B.S. Communication · Health Communication Certificate</div></div><div class="rd-yr">2025</div></div>
-        <div class="rd-certs"><span class="rd-ct">PTCB Certified Pharmacy Technician (CPhT)</span><span class="rd-ct">Immunization-Certified (APhA)</span><span class="rd-ct">CNPR — In Progress</span><span class="rd-ct">CPR/AED — American Red Cross</span></div></div>
+        <div class="rm">
+          <div class="rm-name">MERIT DEPPE</div>
+          <div class="rm-role">Medical Device Sales Representative</div>
+          <div class="rm-contact-row">
+            <span class="rm-ci">📍 Dallas, TX</span>
+            <span class="rm-ci">📞 (469) 520-6214</span>
+            <span class="rm-ci">✉️ meritmdeppe@gmail.com</span>
+          </div>
+          <div class="rm-s">
+            <div class="rm-sh">Professional Summary</div>
+            <div class="rm-sum">Healthcare professional with 4+ years inside clinical environments — pharmacies, immunization clinics, and patient care settings — with a proven ability to communicate technical product information, influence HCP decisions, and build lasting relationships with clinical staff. Targeting entry-level medical device sales where clinical credibility, a Communication degree, and a competitive drive create immediate territory value. Texas A&amp;M graduate. PTCB certified. Ready for a bag and a quota.</div>
+          </div>
+          <div class="rm-s">
+            <div class="rm-sh">Key Achievements</div>
+            <div class="rm-ach">
+              <div class="rm-ach-item"><span class="rm-ach-icon">🏥</span><div><div class="rm-ach-title">4+ Years Operating Inside Clinical Environments</div><div class="rm-ach-body">Understands HCP workflow, clinical team hierarchy, and point-of-care decision-making from actual experience — not theory. Gains trust in clinical settings faster than candidates without this background.</div></div></div>
+              <div class="rm-ach-item"><span class="rm-ach-icon">📈</span><div><div class="rm-ach-title">Measurable Volume Growth Through Patient Education</div><div class="rm-ach-body">Grew vaccination program 20+ doses above prior year at CVS through an education-first patient engagement model — the same model that drives device adoption at the HCP level.</div></div></div>
+              <div class="rm-ach-item"><span class="rm-ach-icon">🎓</span><div><div class="rm-ach-title">Health Communication Certificate — Texas A&amp;M</div><div class="rm-ach-body">Formal training in message framing, behavior change, and health literacy. Separates her from reps who rely only on the product spec sheet.</div></div></div>
+            </div>
+          </div>
+          <div class="rm-s">
+            <div class="rm-sh">Experience</div>
+            <div class="rm-job">
+              <div class="rm-jh"><div><div class="rm-co">CVS Health — Dallas, TX</div><div class="rm-jr">Immunizer & Pharmacy Technician</div></div><div class="rm-dt">Jan 2024 – Present</div></div>
+              <ul class="rm-ul">
+                <li>Execute clinical procedures requiring technical precision and protocol compliance — hands-on clinical credibility applicable directly to device rep conversations</li>
+                <li>Educate patients on product mechanism, expected outcomes, risks, and aftercare — direct parallel to medical device product detailing with HCPs</li>
+                <li>Build trust within clinical team structures alongside pharmacists and nurses, demonstrating rapid credibility in professional clinical environments</li>
+              </ul>
+            </div>
+            <div class="rm-job">
+              <div class="rm-jh"><div><div class="rm-co">Las Colinas Pharmacy — Irving, TX</div><div class="rm-jr">Pharmacy Technician</div></div><div class="rm-dt">Mar 2021 – Dec 2024</div></div>
+              <ul class="rm-ul">
+                <li>Managed high-complexity patient and provider relationships, resolving coverage and access issues across multiple stakeholders simultaneously</li>
+                <li>Built a repeat-engagement reputation over 3+ years through service reliability — the foundation of any sustainable sales territory</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+          <div class="rs">
+    <img class="rs-photo" src="data:image/jpeg;base64,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" alt="Merit Deppe">
+    <div class="rs-name-sm">Medical Device</div>
+
+    <div>
+      <div class="rs-sh">Core Skills</div>
+      <div class="rs-skill-row"><span class="rs-skill-name">Patient Communication</span><div class="rs-dots"><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div></div></div>
+      <div class="rs-skill-row"><span class="rs-skill-name">Clinical Knowledge</span><div class="rs-dots"><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot half"></div></div></div>
+      <div class="rs-skill-row"><span class="rs-skill-name">Objection Handling</span><div class="rs-dots"><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot"></div></div></div>
+      <div class="rs-skill-row"><span class="rs-skill-name">Relationship Mgmt</span><div class="rs-dots"><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div></div></div>
+      <div class="rs-skill-row"><span class="rs-skill-name">PBM / Formulary</span><div class="rs-dots"><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot"></div></div></div>
+      <div class="rs-skill-row"><span class="rs-skill-name">Consultative Sell</span><div class="rs-dots"><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot half"></div></div></div>
+    </div>
+
+    <div>
+      <div class="rs-sh">Certifications</div>
+      <div class="rs-cert"><div class="rs-cert-dot"></div><div class="rs-cert-text">CPhT — PTCB Certified Pharmacy Technician</div></div>
+      <div class="rs-cert"><div class="rs-cert-dot"></div><div class="rs-cert-text">Immunization-Certified — APhA</div></div>
+      <div class="rs-cert"><div class="rs-cert-dot"></div><div class="rs-cert-text">TX State Board — Registered Tech</div></div>
+      <div class="rs-cert" style="opacity:0.7"><div class="rs-cert-dot gold"></div><div class="rs-cert-text">CNPR — In Progress</div></div>
+      <div class="rs-cert"><div class="rs-cert-dot purple"></div><div class="rs-cert-text">CPR / AED — American Red Cross</div></div>
+      
+    </div>
+
+    <div>
+      <div class="rs-sh">Key Stats</div>
+      <div class="rs-stat"><div class="rs-stat-n">45+</div><div class="rs-stat-l">Vaccines Administered</div></div>
+      <div class="rs-stat"><div class="rs-stat-n">76</div><div class="rs-stat-l">Relationships Built in Recruitment</div></div>
+      <div class="rs-stat"><div class="rs-stat-n">4+yr</div><div class="rs-stat-l">Patient-Facing Clinical Experience</div></div>
+    </div>
+
+    <div>
+      <div class="rs-sh">Contact</div>
+      <div class="rs-contact-item">📍 Dallas, Texas</div>
+      <div class="rs-contact-item">📞 (469) 520-6214</div>
+      <div class="rs-contact-item">✉️ meritmdeppe@gmail.com</div>
+    </div>
+
+    <div>
+      <div class="rs-sh">Education</div>
+      <div style="font-size:0.78rem;font-weight:700;color:#e2e8f0;margin-bottom:0.15rem">Texas A&amp;M University</div>
+      <div style="font-size:0.7rem;color:#94a3b8;line-height:1.4">B.S. Communication<br>Health Communication Certificate<br>Kappa Delta · 2021–2025<br><span style="color:#22d3ee">Graduated 2025</span></div>
+    </div>
+  </div>
       </div>
     </div>
 
-    <!-- SPECIALTY -->
+    <!-- SPECIALTY PHARMACY -->
     <div class="rpane" id="tab-sp">
       <div class="rdoc">
-        <div class="rd-head"><div class="rd-name">Merit Deppe</div><div class="rd-role">Specialty Pharmacy Sales Representative</div><div class="rd-contact"><span>📍 Dallas, TX</span><span>📞 (469) 520-6214</span><span>✉️ meritmdeppe@gmail.com</span></div></div>
-        <div class="rd-s"><div class="rd-sh">Professional Summary</div><div class="rd-sum">PTCB-certified pharmacy technician with 4+ years of specialty-adjacent clinical experience: complex prior authorization management, insurance exception resolution, payer system navigation, and longitudinal patient counseling on high-cost therapies. Understands the specialty pharmacy model from the inside — access barriers, PA workflows, and the patient journey from Rx to adherence. Transitioning into specialty pharmacy sales with clinical fluency and relationship management skills that take most reps years to develop. CNPR in progress.</div></div>
-        <div class="rd-s"><div class="rd-sh">Specialty-Relevant Experience</div>
-        <ul class="rd-ul">
-          <li>4+ years navigating <strong>insurance prior authorizations and coverage exceptions</strong> — core competency for specialty access and reimbursement conversations</li>
-          <li>Counseled patients on complex medication decisions including chronic disease management and injection therapies across multi-year timeframes</li>
-          <li>Built longitudinal patient adherence relationships at independent pharmacy — mirrors the specialty pharmacy ongoing care model directly</li>
-          <li>Deep working knowledge of PBM structures, formulary tiers, and step therapy from daily payer system interaction</li>
-        </ul></div>
-        <div class="rd-s"><div class="rd-sh">Professional Experience</div>
-        <div class="rd-job"><div class="rd-jh"><div><div class="rd-co">CVS Health — Dallas, TX</div><div class="rd-jr">Immunizer & Pharmacy Technician</div></div><div class="rd-dt">Jan 2024 – Present</div></div>
-        <ul class="rd-ul"><li>Manage high-complexity patient interactions requiring clinical accuracy, rapid trust-building, and precise documentation under volume pressure</li><li>Resolve insurance coverage barriers in real time: formulary exceptions, benefit investigations, COB</li><li>Drove vaccination volume 20+ doses above prior year through patient education-first engagement</li></ul></div>
-        <div class="rd-job"><div class="rd-jh"><div><div class="rd-co">Las Colinas Pharmacy (Independent) — Irving, TX</div><div class="rd-jr">Pharmacy Technician</div></div><div class="rd-dt">Mar 2021 – Dec 2024</div></div>
-        <ul class="rd-ul"><li>Independent pharmacy with higher patient complexity and direct pharmacist collaboration — mirrors specialty operating model</li><li>Built multi-year chronic disease patient relationships, supporting medication adherence and refill management over time</li><li>End-to-end access management: prescriber outreach, insurance navigation, patient education, and resolution documentation</li></ul></div></div>
-        <div class="rd-s"><div class="rd-sh">Core Competencies</div><div class="rd-skills"><span class="rd-sk">Prior Authorization</span><span class="rd-sk">Formulary & PBM</span><span class="rd-sk">Patient Adherence</span><span class="rd-sk">HUB Services</span><span class="rd-sk">Clinical Counseling</span><span class="rd-sk">Prescriber Relations</span><span class="rd-sk">Complex Case Mgmt</span><span class="rd-sk">Reimbursement Nav</span></div></div>
-        <div class="rd-s"><div class="rd-sh">Education & Certifications</div>
-        <div class="rd-edu-r"><div><div class="rd-school">Texas A&M University</div><div class="rd-deg">B.S. Communication · Health Communication Certificate</div></div><div class="rd-yr">2025</div></div>
-        <div class="rd-certs"><span class="rd-ct">PTCB Certified Pharmacy Technician (CPhT)</span><span class="rd-ct">Texas State Board — Registered Pharmacy Technician</span><span class="rd-ct">Immunization-Certified (APhA)</span><span class="rd-ct">CNPR — In Progress</span></div></div>
+        <div class="rm">
+          <div class="rm-name">MERIT DEPPE</div>
+          <div class="rm-role">Specialty Pharmacy Sales Representative</div>
+          <div class="rm-contact-row">
+            <span class="rm-ci">📍 Dallas, TX</span>
+            <span class="rm-ci">📞 (469) 520-6214</span>
+            <span class="rm-ci">✉️ meritmdeppe@gmail.com</span>
+          </div>
+          <div class="rm-s">
+            <div class="rm-sh">Professional Summary</div>
+            <div class="rm-sum">PTCB-certified pharmacy technician with 4+ years of specialty-adjacent clinical experience: complex prior authorization management, insurance exception resolution, payer system navigation, and longitudinal patient counseling on high-cost therapies. Understands the specialty pharmacy model from the inside — access barriers, PA workflows, and the patient journey from prescription to adherence. Entering specialty pharmacy sales with clinical fluency and relationship management skills that take most reps years to develop. CNPR in progress.</div>
+          </div>
+          <div class="rm-s">
+            <div class="rm-sh">Key Achievements</div>
+            <div class="rm-ach">
+              <div class="rm-ach-item"><span class="rm-ach-icon">📋</span><div><div class="rm-ach-title">4+ Years of Daily Prior Authorization Management</div><div class="rm-ach-body">Navigated formulary exceptions, benefit investigations, step therapy requirements, and COB issues across both chain and independent pharmacy settings — core competency for specialty access conversations.</div></div></div>
+              <div class="rm-ach-item"><span class="rm-ach-icon">👥</span><div><div class="rm-ach-title">Multi-Year Longitudinal Patient Adherence Relationships</div><div class="rm-ach-body">Built 3+ year patient relationships at Las Colinas Pharmacy — exactly mirrors the long-term patient management model in specialty pharmacy that drives retention and adherence.</div></div></div>
+              <div class="rm-ach-item"><span class="rm-ach-icon">💊</span><div><div class="rm-ach-title">Independent Pharmacy Setting — Higher Complexity Cases</div><div class="rm-ach-body">Las Colinas is an independent pharmacy with more complex patient populations and direct pharmacist collaboration, closely mirroring how specialty pharmacy operates versus retail chain.</div></div></div>
+            </div>
+          </div>
+          <div class="rm-s">
+            <div class="rm-sh">Experience</div>
+            <div class="rm-job">
+              <div class="rm-jh"><div><div class="rm-co">CVS Health — Dallas, TX</div><div class="rm-jr">Immunizer & Pharmacy Technician</div></div><div class="rm-dt">Jan 2024 – Present</div></div>
+              <ul class="rm-ul">
+                <li>Manage high-complexity patient interactions under volume pressure requiring clinical accuracy, rapid trust-building, and precise documentation</li>
+                <li>Resolve coverage barriers in real time: formulary exceptions, benefit investigations, coordination of benefits</li>
+                <li>Grew vaccination volume 20+ doses above prior year through patient education-first engagement model</li>
+              </ul>
+            </div>
+            <div class="rm-job">
+              <div class="rm-jh"><div><div class="rm-co">Las Colinas Pharmacy (Independent) — Irving, TX</div><div class="rm-jr">Pharmacy Technician</div></div><div class="rm-dt">Mar 2021 – Dec 2024</div></div>
+              <ul class="rm-ul">
+                <li>Built multi-year chronic disease patient relationships, supporting medication adherence and refill management over time</li>
+                <li>End-to-end access management: prescriber communication, insurance navigation, patient education, and resolution documentation</li>
+                <li>Operated in an independent environment with higher case complexity than chain pharmacy — mirrors specialty operating model</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+          <div class="rs">
+    <img class="rs-photo" src="data:image/jpeg;base64,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" alt="Merit Deppe">
+    <div class="rs-name-sm">Specialty Pharmacy</div>
+
+    <div>
+      <div class="rs-sh">Core Skills</div>
+      <div class="rs-skill-row"><span class="rs-skill-name">Patient Communication</span><div class="rs-dots"><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div></div></div>
+      <div class="rs-skill-row"><span class="rs-skill-name">Clinical Knowledge</span><div class="rs-dots"><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot half"></div></div></div>
+      <div class="rs-skill-row"><span class="rs-skill-name">Objection Handling</span><div class="rs-dots"><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot"></div></div></div>
+      <div class="rs-skill-row"><span class="rs-skill-name">Relationship Mgmt</span><div class="rs-dots"><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div></div></div>
+      <div class="rs-skill-row"><span class="rs-skill-name">PBM / Formulary</span><div class="rs-dots"><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot"></div></div></div>
+      <div class="rs-skill-row"><span class="rs-skill-name">Consultative Sell</span><div class="rs-dots"><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot half"></div></div></div>
+    </div>
+
+    <div>
+      <div class="rs-sh">Certifications</div>
+      <div class="rs-cert"><div class="rs-cert-dot"></div><div class="rs-cert-text">CPhT — PTCB Certified Pharmacy Technician</div></div>
+      <div class="rs-cert"><div class="rs-cert-dot"></div><div class="rs-cert-text">Immunization-Certified — APhA</div></div>
+      <div class="rs-cert"><div class="rs-cert-dot"></div><div class="rs-cert-text">TX State Board — Registered Tech</div></div>
+      <div class="rs-cert" style="opacity:0.7"><div class="rs-cert-dot gold"></div><div class="rs-cert-text">CNPR — In Progress</div></div>
+      <div class="rs-cert"><div class="rs-cert-dot purple"></div><div class="rs-cert-text">CPR / AED — American Red Cross</div></div>
+      
+    </div>
+
+    <div>
+      <div class="rs-sh">Key Stats</div>
+      <div class="rs-stat"><div class="rs-stat-n">45+</div><div class="rs-stat-l">Vaccines Administered</div></div>
+      <div class="rs-stat"><div class="rs-stat-n">76</div><div class="rs-stat-l">Relationships Built in Recruitment</div></div>
+      <div class="rs-stat"><div class="rs-stat-n">4+yr</div><div class="rs-stat-l">Patient-Facing Clinical Experience</div></div>
+    </div>
+
+    <div>
+      <div class="rs-sh">Contact</div>
+      <div class="rs-contact-item">📍 Dallas, Texas</div>
+      <div class="rs-contact-item">📞 (469) 520-6214</div>
+      <div class="rs-contact-item">✉️ meritmdeppe@gmail.com</div>
+    </div>
+
+    <div>
+      <div class="rs-sh">Education</div>
+      <div style="font-size:0.78rem;font-weight:700;color:#e2e8f0;margin-bottom:0.15rem">Texas A&amp;M University</div>
+      <div style="font-size:0.7rem;color:#94a3b8;line-height:1.4">B.S. Communication<br>Health Communication Certificate<br>Kappa Delta · 2021–2025<br><span style="color:#22d3ee">Graduated 2025</span></div>
+    </div>
+  </div>
       </div>
     </div>
 
     <!-- ACCOUNT MANAGER -->
     <div class="rpane" id="tab-am">
       <div class="rdoc">
-        <div class="rd-head"><div class="rd-name">Merit Deppe</div><div class="rd-role">Healthcare Account Manager</div><div class="rd-contact"><span>📍 Dallas, TX</span><span>📞 (469) 520-6214</span><span>✉️ meritmdeppe@gmail.com</span></div></div>
-        <div class="rd-s"><div class="rd-sh">Professional Summary</div><div class="rd-sum">Healthcare professional with 4+ years of relationship-first account management in clinical settings — managing patient accounts, resolving multi-stakeholder access issues, and building long-term trust across a complex client base. Texas A&M Communication graduate with a Health Communication certificate. Recognized consistently for interpersonal precision, autonomous problem-solving, and delivery under high-volume conditions. Bringing a clinical relationship foundation to healthcare account management at scale.</div></div>
-        <div class="rd-s"><div class="rd-sh">Account Management Results</div>
-        <ul class="rd-ul">
-          <li>Retained and grew a patient/account base over a <strong>3+ year tenure</strong> at an independent pharmacy through proactive communication and reliable follow-through</li>
-          <li>Managed simultaneous multi-stakeholder relationships — patients, pharmacists, insurers, and prescribers — without compromising clinical accuracy or service quality</li>
-          <li>Built and converted relationships with <strong>76 prospective members</strong> during structured multi-round recruitment, achieving 11 member conversions through personalized consultative engagement</li>
-          <li>Resolved complex insurance disputes, PA denials, and coverage gaps <strong>independently and without escalation</strong></li>
-        </ul></div>
-        <div class="rd-s"><div class="rd-sh">Professional Experience</div>
-        <div class="rd-job"><div class="rd-jh"><div><div class="rd-co">CVS Health — Dallas, TX</div><div class="rd-jr">Patient Relations & Immunization Specialist</div></div><div class="rd-dt">Jan 2024 – Present</div></div>
-        <ul class="rd-ul"><li>Act as primary patient account contact — coordinating between patients, clinical staff, and insurers to resolve access and coverage issues</li><li>Grew immunization program 20+ doses above prior year through proactive patient relationship management</li><li>Maintain service quality across high-volume patient panel while managing concurrent pharmacy operations</li></ul></div>
-        <div class="rd-job"><div class="rd-jh"><div><div class="rd-co">Las Colinas Pharmacy — Irving, TX</div><div class="rd-jr">Pharmacy Technician & Account Lead</div></div><div class="rd-dt">Mar 2021 – Dec 2024</div></div>
-        <ul class="rd-ul"><li>Managed full patient account lifecycle: onboarding, education, issue resolution, and long-term retention over 3+ years</li><li>Multi-party coordination across all stakeholders — contained and closed independently</li><li>Built repeat-visit retention through consistent service and personalized relationship management</li></ul></div></div>
-        <div class="rd-s"><div class="rd-sh">Core Competencies</div><div class="rd-skills"><span class="rd-sk">Account Retention</span><span class="rd-sk">Multi-Stakeholder Mgmt</span><span class="rd-sk">Issue Resolution</span><span class="rd-sk">Cross-Functional Coord</span><span class="rd-sk">Health Plan Navigation</span><span class="rd-sk">Consultative Comm</span><span class="rd-sk">CRM & Documentation</span><span class="rd-sk">Reporting</span></div></div>
-        <div class="rd-s"><div class="rd-sh">Education & Certifications</div>
-        <div class="rd-edu-r"><div><div class="rd-school">Texas A&M University</div><div class="rd-deg">B.S. Communication · Health Communication Certificate · Kappa Delta</div></div><div class="rd-yr">2025</div></div>
-        <div class="rd-certs"><span class="rd-ct">PTCB Certified Pharmacy Technician (CPhT)</span><span class="rd-ct">Immunization-Certified (APhA)</span><span class="rd-ct">CNPR — In Progress</span></div></div>
+        <div class="rm">
+          <div class="rm-name">MERIT DEPPE</div>
+          <div class="rm-role">Healthcare Account Manager</div>
+          <div class="rm-contact-row">
+            <span class="rm-ci">📍 Dallas, TX</span>
+            <span class="rm-ci">📞 (469) 520-6214</span>
+            <span class="rm-ci">✉️ meritmdeppe@gmail.com</span>
+          </div>
+          <div class="rm-s">
+            <div class="rm-sh">Professional Summary</div>
+            <div class="rm-sum">Healthcare professional with 4+ years of relationship-first account management in clinical settings — managing patient accounts, resolving multi-stakeholder access issues, and building long-term trust across a complex and diverse client base. Texas A&amp;M Communication graduate (2025) with a Health Communication certificate. Recognized for interpersonal precision, autonomous problem-solving, and consistent delivery in high-volume environments. Bringing a proven clinical relationship foundation to healthcare account management at scale.</div>
+          </div>
+          <div class="rm-s">
+            <div class="rm-sh">Key Achievements</div>
+            <div class="rm-ach">
+              <div class="rm-ach-item"><span class="rm-ach-icon">📊</span><div><div class="rm-ach-title">3+ Year Account Retention at Independent Pharmacy</div><div class="rm-ach-body">Retained and grew patient accounts over a multi-year tenure through proactive communication, reliability, and personalized relationship management — exactly what enterprise account managers do.</div></div></div>
+              <div class="rm-ach-item"><span class="rm-ach-icon">🤝</span><div><div class="rm-ach-title">76 Prospective Members Managed → 11 Converted</div><div class="rm-ach-body">Led competitive Panhellenic recruitment at Texas A&amp;M as a top-selected representative — a multi-round, structured process with direct parallels to consultative account development.</div></div></div>
+              <div class="rm-ach-item"><span class="rm-ach-icon">⚡</span><div><div class="rm-ach-title">Multi-Party Issue Resolution — No Escalation</div><div class="rm-ach-body">Resolved complex insurance disputes, prior auth denials, and coverage gaps independently across patients, insurers, and prescribers simultaneously — all without escalation.</div></div></div>
+            </div>
+          </div>
+          <div class="rm-s">
+            <div class="rm-sh">Experience</div>
+            <div class="rm-job">
+              <div class="rm-jh"><div><div class="rm-co">CVS Health — Dallas, TX</div><div class="rm-jr">Patient Relations & Immunization Specialist</div></div><div class="rm-dt">Jan 2024 – Present</div></div>
+              <ul class="rm-ul">
+                <li>Act as primary patient account contact — coordinating between patients, clinical staff, and insurers to resolve access and coverage issues at scale</li>
+                <li>Grew immunization program 20+ doses above prior year through proactive account engagement and education</li>
+                <li>Maintain quality across a high-volume patient panel while managing concurrent pharmacy operations and clinical procedures</li>
+              </ul>
+            </div>
+            <div class="rm-job">
+              <div class="rm-jh"><div><div class="rm-co">Las Colinas Pharmacy — Irving, TX</div><div class="rm-jr">Pharmacy Technician & Account Lead</div></div><div class="rm-dt">Mar 2021 – Dec 2024</div></div>
+              <ul class="rm-ul">
+                <li>Managed full patient account lifecycle: onboarding, ongoing education, issue resolution, and long-term retention over a 3+ year tenure</li>
+                <li>Multi-party coordination across all stakeholders — contained and closed independently without escalation</li>
+                <li>Contributed to a repeat-visit retention culture through service consistency and personalized relationship management</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+          <div class="rs">
+    <img class="rs-photo" src="data:image/jpeg;base64,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" alt="Merit Deppe">
+    <div class="rs-name-sm">Account Manager</div>
+
+    <div>
+      <div class="rs-sh">Core Skills</div>
+      <div class="rs-skill-row"><span class="rs-skill-name">Patient Communication</span><div class="rs-dots"><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div></div></div>
+      <div class="rs-skill-row"><span class="rs-skill-name">Clinical Knowledge</span><div class="rs-dots"><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot half"></div></div></div>
+      <div class="rs-skill-row"><span class="rs-skill-name">Objection Handling</span><div class="rs-dots"><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot"></div></div></div>
+      <div class="rs-skill-row"><span class="rs-skill-name">Relationship Mgmt</span><div class="rs-dots"><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div></div></div>
+      <div class="rs-skill-row"><span class="rs-skill-name">PBM / Formulary</span><div class="rs-dots"><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot"></div></div></div>
+      <div class="rs-skill-row"><span class="rs-skill-name">Consultative Sell</span><div class="rs-dots"><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot half"></div></div></div>
+    </div>
+
+    <div>
+      <div class="rs-sh">Certifications</div>
+      <div class="rs-cert"><div class="rs-cert-dot"></div><div class="rs-cert-text">CPhT — PTCB Certified Pharmacy Technician</div></div>
+      <div class="rs-cert"><div class="rs-cert-dot"></div><div class="rs-cert-text">Immunization-Certified — APhA</div></div>
+      <div class="rs-cert"><div class="rs-cert-dot"></div><div class="rs-cert-text">TX State Board — Registered Tech</div></div>
+      <div class="rs-cert" style="opacity:0.7"><div class="rs-cert-dot gold"></div><div class="rs-cert-text">CNPR — In Progress</div></div>
+      <div class="rs-cert"><div class="rs-cert-dot purple"></div><div class="rs-cert-text">CPR / AED — American Red Cross</div></div>
+      
+    </div>
+
+    <div>
+      <div class="rs-sh">Key Stats</div>
+      <div class="rs-stat"><div class="rs-stat-n">45+</div><div class="rs-stat-l">Vaccines Administered</div></div>
+      <div class="rs-stat"><div class="rs-stat-n">76</div><div class="rs-stat-l">Relationships Built in Recruitment</div></div>
+      <div class="rs-stat"><div class="rs-stat-n">4+yr</div><div class="rs-stat-l">Patient-Facing Clinical Experience</div></div>
+    </div>
+
+    <div>
+      <div class="rs-sh">Contact</div>
+      <div class="rs-contact-item">📍 Dallas, Texas</div>
+      <div class="rs-contact-item">📞 (469) 520-6214</div>
+      <div class="rs-contact-item">✉️ meritmdeppe@gmail.com</div>
+    </div>
+
+    <div>
+      <div class="rs-sh">Education</div>
+      <div style="font-size:0.78rem;font-weight:700;color:#e2e8f0;margin-bottom:0.15rem">Texas A&amp;M University</div>
+      <div style="font-size:0.7rem;color:#94a3b8;line-height:1.4">B.S. Communication<br>Health Communication Certificate<br>Kappa Delta · 2021–2025<br><span style="color:#22d3ee">Graduated 2025</span></div>
+    </div>
+  </div>
       </div>
     </div>
 
     <!-- CLINICAL LIAISON -->
     <div class="rpane" id="tab-cl">
       <div class="rdoc">
-        <div class="rd-head"><div class="rd-name">Merit Deppe</div><div class="rd-role">Clinical Liaison / Healthcare Educator</div><div class="rd-contact"><span>📍 Dallas, TX</span><span>📞 (469) 520-6214</span><span>✉️ meritmdeppe@gmail.com</span></div></div>
-        <div class="rd-s"><div class="rd-sh">Professional Summary</div><div class="rd-sum">Clinical healthcare professional with 4+ years of patient-facing experience, a B.S. in Communication, and a Certificate in Health Communication from Texas A&M — a rare combination of scientific fluency and strategic messaging. Formally trained in message framing, health literacy, behavior change, and risk communication. Experienced within multi-disciplinary clinical teams. Targeting clinical liaison or healthcare education roles where the gap between clinical expertise and human understanding is closed through communication.</div></div>
-        <div class="rd-s"><div class="rd-sh">Clinical Education Highlights</div>
-        <ul class="rd-ul">
-          <li>Administered <strong>45+ immunizations with full patient education component</strong> — mechanism of action, benefit-risk communication, hesitancy management, post-administration protocol — for every single patient</li>
-          <li>Counseled patients across chronic disease, acute care, and preventive health populations on medication regimens, adherence, and access over 4+ years</li>
-          <li>Texas A&M Health Communication Certificate: formal training in <strong>message framing, health literacy models, behavior change theory, and risk communication</strong></li>
-          <li>Texas A&M Orientation Counselor (2022): peer education, group facilitation, structured program delivery for incoming students</li>
-        </ul></div>
-        <div class="rd-s"><div class="rd-sh">Professional Experience</div>
-        <div class="rd-job"><div class="rd-jh"><div><div class="rd-co">CVS Health — Dallas, TX</div><div class="rd-jr">Immunizer & Patient Education Specialist</div></div><div class="rd-dt">Jan 2024 – Present</div></div>
-        <ul class="rd-ul"><li>Deliver structured patient education on vaccine science, benefit-risk, and post-care protocols — adapted in real time to patient health literacy and emotional state</li><li>Navigate vaccine hesitancy using empathy-first, evidence-based communication aligned with APhA and motivational interviewing standards</li><li>Coordinate with pharmacists and clinical staff to ensure consistent patient messaging across the care team</li></ul></div>
-        <div class="rd-job"><div class="rd-jh"><div><div class="rd-co">Las Colinas Pharmacy — Irving, TX</div><div class="rd-jr">Patient Education & Pharmacy Technician</div></div><div class="rd-dt">Mar 2021 – Dec 2024</div></div>
-        <ul class="rd-ul"><li>Primary patient education resource for a chronic disease population across 3+ years — medication counseling, insurance navigation, adherence support</li><li>Built longitudinal educational relationships supporting sustained health behavior change over time</li></ul></div></div>
-        <div class="rd-s"><div class="rd-sh">Core Competencies</div><div class="rd-skills"><span class="rd-sk">Health Literacy</span><span class="rd-sk">Behavior Change</span><span class="rd-sk">Clinical Team Collaboration</span><span class="rd-sk">Patient Education Design</span><span class="rd-sk">Risk Communication</span><span class="rd-sk">Group Facilitation</span><span class="rd-sk">Motivational Interviewing</span><span class="rd-sk">Documentation</span></div></div>
-        <div class="rd-s"><div class="rd-sh">Education & Certifications</div>
-        <div class="rd-edu-r"><div><div class="rd-school">Texas A&M University</div><div class="rd-deg">B.S. Communication · Certificate in Health Communication (Dual)</div></div><div class="rd-yr">2025</div></div>
-        <div class="rd-certs"><span class="rd-ct">PTCB Certified Pharmacy Technician (CPhT)</span><span class="rd-ct">Immunization-Certified (APhA)</span><span class="rd-ct">Texas State Board — Registered Pharmacy Technician</span><span class="rd-ct">CNPR — In Progress</span><span class="rd-ct">Adult & Pediatric First Aid / CPR / AED</span></div></div>
+        <div class="rm">
+          <div class="rm-name">MERIT DEPPE</div>
+          <div class="rm-role">Clinical Liaison / Healthcare Educator</div>
+          <div class="rm-contact-row">
+            <span class="rm-ci">📍 Dallas, TX</span>
+            <span class="rm-ci">📞 (469) 520-6214</span>
+            <span class="rm-ci">✉️ meritmdeppe@gmail.com</span>
+          </div>
+          <div class="rm-s">
+            <div class="rm-sh">Professional Summary</div>
+            <div class="rm-sum">Clinical healthcare professional with 4+ years of patient-facing experience, a B.S. in Communication, and a Certificate in Health Communication from Texas A&amp;M — a rare combination of scientific literacy and strategic messaging. Formally trained in message framing, health literacy models, behavior change theory, and risk communication. Experienced within multi-disciplinary clinical teams. Targeting clinical liaison or healthcare education roles where the gap between clinical expertise and human understanding is closed through strategic communication.</div>
+          </div>
+          <div class="rm-s">
+            <div class="rm-sh">Key Achievements</div>
+            <div class="rm-ach">
+              <div class="rm-ach-item"><span class="rm-ach-icon">📚</span><div><div class="rm-ach-title">Dual Health Communication Credential — Texas A&amp;M</div><div class="rm-ach-body">B.S. Communication plus Certificate in Health Communication — formal training in message framing, behavior change, risk communication, and health literacy. Rare for a clinical candidate.</div></div></div>
+              <div class="rm-ach-item"><span class="rm-ach-icon">💉</span><div><div class="rm-ach-title">45+ Immunizations with Full Patient Education Component</div><div class="rm-ach-body">Every vaccination included mechanism explanation, benefit-risk counseling, hesitancy management, and post-administration protocol — adapted in real time to patient health literacy level.</div></div></div>
+              <div class="rm-ach-item"><span class="rm-ach-icon">🎤</span><div><div class="rm-ach-title">Peer Education Leader — A&amp;M Orientation Program</div><div class="rm-ach-body">Selected as Orientation Camp Counselor at Texas A&amp;M — group facilitation, resource communication, and peer education for incoming students in a structured multi-day program.</div></div></div>
+            </div>
+          </div>
+          <div class="rm-s">
+            <div class="rm-sh">Experience</div>
+            <div class="rm-job">
+              <div class="rm-jh"><div><div class="rm-co">CVS Health — Dallas, TX</div><div class="rm-jr">Immunizer & Patient Education Specialist</div></div><div class="rm-dt">Jan 2024 – Present</div></div>
+              <ul class="rm-ul">
+                <li>Deliver structured patient education on vaccine science, benefit-risk, and post-care protocols — adapted to each patient's health literacy level and emotional state in real time</li>
+                <li>Navigate vaccine hesitancy using empathy-first, evidence-based communication aligned with APhA and motivational interviewing principles</li>
+                <li>Coordinate with clinical team to ensure consistent, accurate patient messaging across the full care team</li>
+              </ul>
+            </div>
+            <div class="rm-job">
+              <div class="rm-jh"><div><div class="rm-co">Las Colinas Pharmacy — Irving, TX</div><div class="rm-jr">Patient Education & Pharmacy Technician</div></div><div class="rm-dt">Mar 2021 – Dec 2024</div></div>
+              <ul class="rm-ul">
+                <li>Primary patient education resource for a chronic disease population across 3+ years — medication counseling, insurance navigation, adherence support</li>
+                <li>Built longitudinal educational relationships that supported sustained health behavior change over multi-year timeframes</li>
+              </ul>
+            </div>
+            <div class="rm-job">
+              <div class="rm-jh"><div><div class="rm-co">Texas A&amp;M University — College Station, TX</div><div class="rm-jr">Orientation Camp Counselor</div></div><div class="rm-dt">2022</div></div>
+              <ul class="rm-ul"><li>Facilitated peer education and group communication for incoming students; demonstrated leadership, inclusion, and structured program delivery</li></ul>
+            </div>
+          </div>
+        </div>
+          <div class="rs">
+    <img class="rs-photo" src="data:image/jpeg;base64,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" alt="Merit Deppe">
+    <div class="rs-name-sm">Clinical Liaison</div>
+
+    <div>
+      <div class="rs-sh">Core Skills</div>
+      <div class="rs-skill-row"><span class="rs-skill-name">Patient Communication</span><div class="rs-dots"><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div></div></div>
+      <div class="rs-skill-row"><span class="rs-skill-name">Clinical Knowledge</span><div class="rs-dots"><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot half"></div></div></div>
+      <div class="rs-skill-row"><span class="rs-skill-name">Objection Handling</span><div class="rs-dots"><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot"></div></div></div>
+      <div class="rs-skill-row"><span class="rs-skill-name">Relationship Mgmt</span><div class="rs-dots"><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div></div></div>
+      <div class="rs-skill-row"><span class="rs-skill-name">PBM / Formulary</span><div class="rs-dots"><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot"></div></div></div>
+      <div class="rs-skill-row"><span class="rs-skill-name">Consultative Sell</span><div class="rs-dots"><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot on"></div><div class="rs-dot half"></div></div></div>
+    </div>
+
+    <div>
+      <div class="rs-sh">Certifications</div>
+      <div class="rs-cert"><div class="rs-cert-dot"></div><div class="rs-cert-text">CPhT — PTCB Certified Pharmacy Technician</div></div>
+      <div class="rs-cert"><div class="rs-cert-dot"></div><div class="rs-cert-text">Immunization-Certified — APhA</div></div>
+      <div class="rs-cert"><div class="rs-cert-dot"></div><div class="rs-cert-text">TX State Board — Registered Tech</div></div>
+      <div class="rs-cert" style="opacity:0.7"><div class="rs-cert-dot gold"></div><div class="rs-cert-text">CNPR — In Progress</div></div>
+      <div class="rs-cert"><div class="rs-cert-dot purple"></div><div class="rs-cert-text">CPR / AED — American Red Cross</div></div>
+      
+    </div>
+
+    <div>
+      <div class="rs-sh">Key Stats</div>
+      <div class="rs-stat"><div class="rs-stat-n">45+</div><div class="rs-stat-l">Vaccines Administered</div></div>
+      <div class="rs-stat"><div class="rs-stat-n">76</div><div class="rs-stat-l">Relationships Built in Recruitment</div></div>
+      <div class="rs-stat"><div class="rs-stat-n">4+yr</div><div class="rs-stat-l">Patient-Facing Clinical Experience</div></div>
+    </div>
+
+    <div>
+      <div class="rs-sh">Contact</div>
+      <div class="rs-contact-item">📍 Dallas, Texas</div>
+      <div class="rs-contact-item">📞 (469) 520-6214</div>
+      <div class="rs-contact-item">✉️ meritmdeppe@gmail.com</div>
+    </div>
+
+    <div>
+      <div class="rs-sh">Education</div>
+      <div style="font-size:0.78rem;font-weight:700;color:#e2e8f0;margin-bottom:0.15rem">Texas A&amp;M University</div>
+      <div style="font-size:0.7rem;color:#94a3b8;line-height:1.4">B.S. Communication<br>Health Communication Certificate<br>Kappa Delta · 2021–2025<br><span style="color:#22d3ee">Graduated 2025</span></div>
+    </div>
+  </div>
       </div>
     </div>
 
   </div>
 </section>
-
 <!-- CONTACT -->
 <section class="contact-sect" id="contact">
   <div class="c-sm">
